@@ -1,0 +1,3 @@
+include README.md
+include ipxact2sv/xml/*.xsd
+include requirements.txt
