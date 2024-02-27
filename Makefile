@@ -18,12 +18,17 @@ all: gen
 gen:
         # no config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output
+	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output
+	pandoc -s example/output/example.rst -o example/output/example.rtf
+	pandoc -s example/output/example.rst -o example/output/example.docx
 
         # default config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
+	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 
         # no default config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
+	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 
 compile: 
 	test -d work || vlib work
@@ -47,6 +52,9 @@ clean:
 validate:
 	xmllint --noout --schema ipxact2sv/xml/component.xsd  example/input/test.xml
 
+test_rst:
+	rst-lint example/output/*.rst
+	
 venv: requirements.txt
 	python3 -m venv ./venv
 	pip install wheel
