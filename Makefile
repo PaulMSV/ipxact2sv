@@ -19,6 +19,7 @@ gen:
         # no config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output
+	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output
 	rst2html5.py example/output/example.rst example/output/example.html
 	pandoc -s example/output/example.rst -o example/output/example.rtf
 	pandoc -s example/output/example.rst -o example/output/example.docx
@@ -26,10 +27,12 @@ gen:
         # default config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
+	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 
         # no default config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
+	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 
         # RestructuredText and Sphinx with Wavedrom
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_sphinx  --config example/input/sphinx.ini
