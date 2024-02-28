@@ -19,6 +19,7 @@ gen:
         # no config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output
+	rst2html5.py example/output/example.rst example/output/example.html
 	pandoc -s example/output/example.rst -o example/output/example.rtf
 	pandoc -s example/output/example.rst -o example/output/example.docx
 
@@ -30,7 +31,13 @@ gen:
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 
-compile: 
+        # RestructuredText and Sphinx with Wavedrom
+	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_sphinx  --config example/input/sphinx.ini
+	sphinx-build example/output_sphinx example/output_sphinx/build -q -b latex
+	make -C example/output_sphinx/build
+	cp example/output_sphinx/build/example.pdf example/output_sphinx
+
+compile:
 	test -d work || vlib work
 	vlog  +incdir+example/output  example/output/example_sv_pkg.sv example/tb/sv_dut.sv example/tb/tb.sv
 	vmake work > vmakefile
