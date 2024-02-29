@@ -61,8 +61,10 @@ sudo apt install pandoc
 
 # для использования sphinx
 sudo apt install texlive
+sudo apt install texlive-lang-cyrillic
 sudo apt install latexmk
 ```
+
 
 ## Для работы в режиме разработки pypi
 
