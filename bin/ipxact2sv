@@ -10,7 +10,6 @@ from ipxact2sv.ipxact2hdlCommon import systemVerilogAddressBlock
 from ipxact2sv.ipxact2hdlCommon import DEFAULT_INI
 from ipxact2sv.validate import validate
 
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='ipxact2sv')
     parser.add_argument('-s', '--srcFile', help='ipxact xml input file', required=True)

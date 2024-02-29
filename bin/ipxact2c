@@ -6,12 +6,12 @@ import argparse
 
 from ipxact2sv.ipxact2hdlCommon import ipxactParser
 from ipxact2sv.ipxact2hdlCommon import ipxact2otherGenerator
-from ipxact2sv.ipxact2hdlCommon import rstAddressBlock
+from ipxact2sv.ipxact2hdlCommon import cAddressBlock
 from ipxact2sv.ipxact2hdlCommon import DEFAULT_INI
 from ipxact2sv.validate import validate
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='ipxact2rst')
+    parser = argparse.ArgumentParser(description='ipxact2c')
     parser.add_argument('-s', '--srcFile', help='ipxact xml input file', required=True)
     parser.add_argument('-d', '--destDir', help="write generated file to dir", required=True)
     parser.add_argument('-c', '--config', help="configuration ini file")
@@ -32,4 +32,4 @@ if __name__ == '__main__':
     e = ipxactParser(args.srcFile, config)
     document = e.returnDocument()
     generator = ipxact2otherGenerator(args.destDir, config)
-    generator.generate(rstAddressBlock, document)
+    generator.generate(cAddressBlock, document)

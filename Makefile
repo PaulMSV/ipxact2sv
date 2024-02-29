@@ -20,6 +20,7 @@ gen:
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output
 	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output
+	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output
 	rst2html5.py example/output/example.rst example/output/example.html
 	pandoc -s example/output/example.rst -o example/output/example.rtf
 	pandoc -s example/output/example.rst -o example/output/example.docx
@@ -28,11 +29,13 @@ gen:
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
+	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 
         # no default config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
+	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 
         # RestructuredText and Sphinx with Wavedrom
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_sphinx  --config example/input/sphinx.ini
@@ -61,6 +64,10 @@ clean:
 
 validate:
 	xmllint --noout --schema ipxact2sv/xml/component.xsd  example/input/test.xml
+
+test_c:
+	gcc -Wall -g  example/test/example.c -o example.exe
+	./example.exe
 
 test_rst:
 	rst-lint example/output/*.rst
