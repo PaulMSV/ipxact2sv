@@ -1,4 +1,4 @@
-# ipxact2sv ipxact2rst ipxact2md
+# ipxact2sv ipxact2rst ipxact2md ipxact2c
 
 [![image](https://badge.fury.io/py/ipxact2sv.svg)](https://pypi.python.org/pypi/ipxact2sv/)
 
@@ -14,6 +14,7 @@ pip install ipxact2sv
 ipxact2sv --srcFile FILE --destDir DIR
 ipxact2rst --srcFile FILE --destDir DIR
 ipxact2md --srcFile FILE --destDir DIR
+ipxact2c --srcFile FILE --destDir DIR
 ```
 
 ## Разработка

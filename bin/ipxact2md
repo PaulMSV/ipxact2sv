@@ -6,12 +6,12 @@ import argparse
 
 from ipxact2sv.ipxact2hdlCommon import ipxactParser
 from ipxact2sv.ipxact2hdlCommon import ipxact2otherGenerator
-from ipxact2sv.ipxact2hdlCommon import systemVerilogAddressBlock
+from ipxact2sv.ipxact2hdlCommon import mdAddressBlock
 from ipxact2sv.ipxact2hdlCommon import DEFAULT_INI
 from ipxact2sv.validate import validate
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='ipxact2sv')
+    parser = argparse.ArgumentParser(description='ipxact2md')
     parser.add_argument('-s', '--srcFile', help='ipxact xml input file', required=True)
     parser.add_argument('-d', '--destDir', help="write generated file to dir", required=True)
     parser.add_argument('-c', '--config', help="configuration ini file")
@@ -26,10 +26,10 @@ if __name__ == '__main__':
     if args.config:
         config.read_dict(DEFAULT_INI)
         config.read(args.config)
-    else: 
+    else:
         config.read_dict(DEFAULT_INI)
 
     e = ipxactParser(args.srcFile, config)
     document = e.returnDocument()
     generator = ipxact2otherGenerator(args.destDir, config)
-    generator.generate(systemVerilogAddressBlock, document)
+    generator.generate(mdAddressBlock, document)
