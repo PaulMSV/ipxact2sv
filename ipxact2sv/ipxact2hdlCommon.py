@@ -1008,7 +1008,7 @@ class cAddressBlock(addressBlockClass):
             r += "//  Macro functions for register " + reg.name + "\n"
             for i in list(range(len(reg.fieldNameList))):
                 fieldname = reg.fieldNameList[i]
-                l = f"//  - {self.getMacroName(reg, fieldname)} : {reg.fieldDescList[i]}"
+                l = f"//  - {self.getMacroName(reg, fieldname)}"
                 l = l.strip()  # avoid a space at the end of the line if field description is empty
                 r += l + "\n"
             r += "// ------------------------------------------------\n"
