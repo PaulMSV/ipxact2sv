@@ -11,10 +11,7 @@ from rstcloth import RstCloth
 
 DEFAULT_INI = {'global': {'unusedholes': 'yes',
                           'onebitenum': 'no'},
-               'vhdl': {'PublicConvFunct': 'no',
-                        'std': 'unresolved'},
                'rst': {'wavedrom': 'no'}}
-
 
 def sortRegisterAndFillHoles(regName,
                              fieldNameList,
@@ -942,6 +939,102 @@ class systemVerilogAddressBlock(addressBlockClass):
         return r
 
 
+class svhAddressBlock(addressBlockClass):
+    def __init__(self, name, description, baseAddress, addrWidth, dataWidth, config):
+        self.name = name
+        self.description = description
+        self.baseAddress = baseAddress
+        self.addrWidth = addrWidth
+        self.dataWidth = dataWidth
+        self.registerList = []
+        self.suffix = ".svh"
+
+    def registerOffsetName(self, reg):
+        return reg.name.upper() + "_OFFSET"
+
+    def registerResetName(self, reg):
+        return reg.name.upper() + "_RESET"
+
+    def getFieldMaskName(self, reg, fieldname):
+        return reg.name.upper() + "_" + fieldname.upper() + "_MASK"
+
+    def getFieldShiftName(self, reg, fieldname):
+        return reg.name.upper() + "_" + fieldname.upper() + "_SHIFT"
+
+    def getMacroName(self, reg, fieldname):
+        return "GET_" + reg.name.upper() + "_" + fieldname.upper()
+
+    def returnRegisterOffsets(self):
+        r = ""
+        r += "// ------------------------------------------------\n"
+        r += "//  Register offsets\n"
+        r += "// ------------------------------------------------\n"
+        for reg in self.registerList:
+            addrStr = "8'h%02X" % reg.address
+            r += "`define "+ self.registerOffsetName(reg) + "\t" + addrStr + "\t// " + reg.desc +"\n"
+
+        r += "\n\n"
+        return r
+
+    def returnRegisterBitOperators(self):
+        r = ""
+
+        for reg in self.registerList:
+            r += "// ------------------------------------------------\n"
+            r += "//  Bit operations for register " + reg.name + "\n"
+            r += "// ------------------------------------------------\n"
+            for i in list(range(len(reg.fieldNameList))):
+                fieldname = reg.fieldNameList[i]
+                r += "`define "+ self.getFieldShiftName(reg, fieldname) + "\t" + \
+                     str(reg.bitOffsetList[i]) + "\n"
+                mask = 2 ** reg.bitWidthList[i] -1;
+                maskStr = "8'h%02X" % mask
+                r += "`define "+ self.getFieldMaskName(reg, fieldname)  + " \t" + \
+                     maskStr + "\n"
+
+                r += "\n"
+
+        return r
+
+    def returnMacrosFunctions(self):
+        r = ""
+
+        for reg in self.registerList:
+            r += "\n"
+            r += "// ------------------------------------------------\n"
+            r += "//  Macro functions for register " + reg.name + "\n"
+            for i in range(len(reg.fieldNameList)):
+                fieldname = reg.fieldNameList[i]
+                l = f"//  - {self.getMacroName(reg, fieldname)}"
+                l = l.strip()  # avoid a space at the end of the line if field description is empty
+                r += l + "\n"
+            r += "// ------------------------------------------------\n"
+            r += "\n"
+            for fieldname in reg.fieldNameList:
+                operation = "((a >> " + "`" + self.getFieldShiftName(reg, fieldname) + \
+                            ") & " + "`" + self.getFieldMaskName(reg, fieldname) + ")"
+
+                r += "`define "+ self.getMacroName(reg, fieldname) + "(a)\t" + operation + "\n"
+
+        return r
+
+    def returnAsString(self):
+        r = ''
+        r += "/* Automatically generated\n"
+        r += " * with the command '%s'\n" % (' '.join(sys.argv))
+        r += " *\n"
+        r += " * Do not manually edit!\n"
+        r += " */\n"
+
+        r += self.returnRegisterOffsets()
+        r += self.returnRegisterBitOperators()
+        r += self.returnMacrosFunctions()
+
+        r += "\n"
+        r += "// End of " + self.name + self.suffix + "\n"
+        return r
+
+
 class cAddressBlock(addressBlockClass):
     def __init__(self, name, description, baseAddress, addrWidth, dataWidth, config):
         self.name = name
@@ -1052,7 +1145,6 @@ class cAddressBlock(addressBlockClass):
         r += "\n"
         r += "// End of " + self.name + self.suffix + "\n"
         return r
-
 
 class ipxactParser():
     def __init__(self, srcFile, config):

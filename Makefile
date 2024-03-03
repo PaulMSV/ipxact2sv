@@ -18,6 +18,7 @@ all: gen
 gen:
         # no config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output
+	bin/ipxact2svh --srcFile example/input/test.xml --destDir example/output
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output
 	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output
 	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output
@@ -27,12 +28,14 @@ gen:
 
         # default config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
+	bin/ipxact2svh --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 
         # no default config
 	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
+	bin/ipxact2svh --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini

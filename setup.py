@@ -9,7 +9,7 @@ with open('requirements.txt') as f:
 
 setup(name='ipxact2sv',
       python_requires='>=3',
-      version='1.0.4',
+      version='1.0.5',
       description='Generate SystemVerilog, html, rst, md, pdf, docx, C headers from an IPXACT description',
       long_description_content_type="text/markdown",
       long_description=readme(),
@@ -26,6 +26,6 @@ setup(name='ipxact2sv',
       author_email='bobkovpg@gmail.com',
       packages=['ipxact2sv'],
       install_requires=requirements,
-      scripts=['bin/ipxact2sv', 'bin/ipxact2rst', 'bin/ipxact2md', 'bin/ipxact2c'],
+      scripts=['bin/ipxact2sv', 'bin/ipxact2rst', 'bin/ipxact2md', 'bin/ipxact2c', 'bin/ipxact2svh'],
       include_package_data=True,
       zip_safe=False)
