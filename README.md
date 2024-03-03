@@ -12,6 +12,7 @@ html, pdf, rst, md. Утилита не предназначена для ген
 pip install ipxact2sv
 
 ipxact2sv --srcFile FILE --destDir DIR
+ipxact2svh --srcFile FILE --destDir DIR
 ipxact2rst --srcFile FILE --destDir DIR
 ipxact2md --srcFile FILE --destDir DIR
 ipxact2c --srcFile FILE --destDir DIR
