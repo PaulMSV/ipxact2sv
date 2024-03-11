@@ -17,34 +17,42 @@ all: gen
 
 gen:
         # no config
-	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output
-	bin/ipxact2svh --srcFile example/input/test.xml --destDir example/output
-	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output
-	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output
-	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output
-	rst2html5.py example/output/example.rst example/output/example.html
-	pandoc -s example/output/example.rst -o example/output/example.rtf
-	pandoc -s example/output/example.rst -o example/output/example.docx
+	#bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output
+	#bin/ipxact2svh --srcFile example/input/test.xml --destDir example/output
+	#bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output
+	#bin/ipxact2md --srcFile example/input/test.xml --destDir example/output
+	#bin/ipxact2c --srcFile example/input/test.xml --destDir example/output
+	#rst2html5.py example/output/example.rst example/output/example.html
+	#pandoc -s example/output/example.rst -o example/output/example.rtf
+	#pandoc -s example/output/example.rst -o example/output/example.docx
+	bin/ipxact2sv --srcFile example/input/Uchip_regmap0.xml --destDir example/output
+	bin/ipxact2svh --srcFile example/input/Uchip_regmap0.xml --destDir example/output
+	bin/ipxact2rst --srcFile example/input/Uchip_regmap0.xml --destDir example/output
+	bin/ipxact2md --srcFile example/input/Uchip_regmap0.xml --destDir example/output
+	bin/ipxact2c --srcFile example/input/Uchip_regmap0.xml --destDir example/output
+	rst2html5.py example/output/regmap0.rst example/output/regmap0.html
+	pandoc -s example/output/regmap0.rst -o example/output/regmap0.rtf
+	pandoc -s example/output/regmap0.rst -o example/output/regmap0.docx
 
         # default config
-	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
-	bin/ipxact2svh --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
-	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
-	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
-	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
+	#bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
+	#bin/ipxact2svh --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
+	#bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
+	#bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
+	#bin/ipxact2c --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 
         # no default config
-	bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
-	bin/ipxact2svh --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
-	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
-	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
-	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
+	#bin/ipxact2sv --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
+	#bin/ipxact2svh --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
+	#bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
+	#bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
+	#bin/ipxact2c --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 
         # RestructuredText and Sphinx with Wavedrom
-	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_sphinx  --config example/input/sphinx.ini
-	sphinx-build example/output_sphinx example/output_sphinx/build -q -b latex
-	make -C example/output_sphinx/build
-	cp example/output_sphinx/build/example.pdf example/output_sphinx
+	#bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_sphinx  --config example/input/sphinx.ini
+	#sphinx-build example/output_sphinx example/output_sphinx/build -q -b latex
+	#make -C example/output_sphinx/build
+	#cp example/output_sphinx/build/example.pdf example/output_sphinx
 
 compile:
 	test -d work || vlib work

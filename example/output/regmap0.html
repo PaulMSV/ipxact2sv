@@ -1,0 +1,7537 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>regmap0</title>
+<style type="text/css">
+
+/* Minimal style sheet for the HTML output of Docutils.                    */
+/*                                                                         */
+/* :Author: Günter Milde, based on html4css1.css by David Goodger          */
+/* :Id: $Id: minimal.css 9079 2022-06-19 14:00:56Z milde $                                                               */
+/* :Copyright: © 2015, 2021 Günter Milde.                                  */
+/* :License: Released under the terms of the `2-Clause BSD license`_,      */
+/*    in short:                                                            */
+/*                                                                         */
+/*    Copying and distribution of this file, with or without modification, */
+/*    are permitted in any medium without royalty provided the copyright   */
+/*    notice and this notice are preserved.                                */
+/*                                                                         */
+/*    This file is offered as-is, without any warranty.                    */
+/*                                                                         */
+/* .. _2-Clause BSD license: http://www.spdx.org/licenses/BSD-2-Clause     */
+
+/* This CSS3 stylesheet defines rules for Docutils elements without        */
+/* HTML equivalent. It is required to make the document semantics visible. */
+/*                                                                         */
+/* .. _validates: http://jigsaw.w3.org/css-validator/validator$link        */
+
+/* titles */
+p.topic-title,
+p.admonition-title,
+p.system-message-title {
+  font-weight: bold;
+}
+p.sidebar-title,
+p.rubric {
+  font-weight: bold;
+  font-size: larger;
+}
+p.rubric {
+  color: maroon;
+}
+p.subtitle,
+p.section-subtitle,
+p.sidebar-subtitle {
+  font-weight: bold;
+  margin-top: -0.5em;
+}
+h1 + p.subtitle {
+  font-size: 1.6em;
+}
+a.toc-backref {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Warnings, Errors */
+.system-messages h2,
+.system-message-title,
+span.problematic {
+  color: red;
+}
+
+/* Inline Literals */
+.docutils.literal {
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+/* do not wrap at hyphens and similar: */
+.literal > span.pre { white-space: nowrap; }
+
+/* Lists */
+
+/* compact and simple lists: no margin between items */
+.simple  li, .simple  ul, .simple  ol,
+.compact li, .compact ul, .compact ol,
+.simple  > li p, dl.simple  > dd,
+.compact > li p, dl.compact > dd {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* Nested Paragraphs */
+p:first-child { margin-top: 0; }
+p:last-child { margin-bottom: 0; }
+details > p:last-child { margin-bottom: 1em; }
+
+/* Table of Contents */
+.contents ul.auto-toc { /* section numbers present */
+  list-style-type: none;
+}
+
+/* Enumerated Lists */
+ol.arabic     { list-style: decimal }
+ol.loweralpha { list-style: lower-alpha }
+ol.upperalpha { list-style: upper-alpha }
+ol.lowerroman { list-style: lower-roman }
+ol.upperroman { list-style: upper-roman }
+
+/* Definition Lists and Derivatives */
+dt .classifier { font-style: italic }
+dt .classifier:before {
+  font-style: normal;
+  margin: 0.5em;
+  content: ":";
+}
+/* Field Lists and similar */
+/* bold field name, content starts on the same line */
+dl.field-list,
+dl.option-list,
+dl.docinfo {
+  display: flow-root;
+}
+dl.field-list > dt,
+dl.option-list > dt,
+dl.docinfo > dt {
+  font-weight: bold;
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-right: 0.2em;
+}
+/* Offset for field content (corresponds to the --field-name-limit option) */
+dl.field-list > dd,
+dl.option-list > dd,
+dl.docinfo > dd {
+  margin-left:  9em; /* ca. 14 chars in the test examples, fit all Docinfo fields */
+}
+/* start nested lists on new line */
+dd > dl:first-child,
+dd > ul:first-child,
+dd > ol:first-child {
+  clear: left;
+}
+/* start field-body on a new line after long field names */
+dl.field-list > dd > *:first-child,
+dl.option-list > dd > *:first-child
+{
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+}
+
+/* Bibliographic Fields (docinfo) */
+dl.docinfo pre.address {
+  font: inherit;
+  margin: 0.5em 0;
+}
+dl.docinfo > dd.authors > p { margin: 0; }
+
+/* Option Lists */
+dl.option-list > dt { font-weight: normal; }
+span.option { white-space: nowrap; }
+
+/* Footnotes and Citations  */
+
+.footnote, .citation { margin: 1em 0; } /* default paragraph skip (Firefox) */
+/* hanging indent */
+.citation { padding-left: 2em; }
+.footnote { padding-left: 1.7em; }
+.footnote.superscript { padding-left: 1.0em; }
+.citation > .label { margin-left: -2em; }
+.footnote > .label { margin-left: -1.7em; }
+.footnote.superscript > .label { margin-left: -1.0em; }
+
+.footnote > .label + *,
+.citation > .label + * {
+  display: inline-block;
+  margin-top: 0;
+  vertical-align: top;
+}
+.footnote > .backrefs + *,
+.citation > .backrefs + * {
+  margin-top: 0;
+}
+.footnote > .label + p, .footnote > .backrefs + p,
+.citation > .label + p, .citation > .backrefs + p {
+  display: inline;
+  vertical-align: inherit;
+}
+
+.backrefs { user-select: none; }
+.backrefs > a { font-style: italic; }
+
+/* superscript footnotes */
+a[role="doc-noteref"].superscript,
+.footnote.superscript > .label,
+.footnote.superscript > .backrefs {
+  vertical-align: super;
+  font-size: smaller;
+  line-height: 1;
+}
+a[role="doc-noteref"].superscript > .fn-bracket,
+.footnote.superscript > .label > .fn-bracket {
+  /* hide brackets in display but leave for copy/paste */
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+}
+[role="doc-noteref"].superscript + [role="doc-noteref"].superscript {
+  padding-left: 0.15em; /* separate consecutive footnote references */
+  /* TODO: unfortunately, "+" also selects with text between the references. */
+}
+
+/* Alignment */
+.align-left   {
+  text-align: left;
+  margin-right: auto;
+}
+.align-center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.align-right  {
+  text-align: right;
+  margin-left: auto;
+}
+.align-top    { vertical-align: top; }
+.align-middle { vertical-align: middle; }
+.align-bottom { vertical-align: bottom; }
+
+/* reset inner alignment in figures and tables */
+figure.align-left, figure.align-right,
+table.align-left, table.align-center, table.align-right {
+  text-align: inherit;
+}
+
+/* Text Blocks */
+.topic { margin: 1em 2em; }
+.sidebar,
+.admonition,
+.system-message {
+  margin: 1em 2em;
+  border: thin solid;
+  padding: 0.5em 1em;
+}
+div.line-block { display: block; }
+div.line-block div.line-block, pre { margin-left: 2em; }
+
+/* Code line numbers: dropped when copying text from the page */
+pre.code .ln { display: none; }
+pre.code code:before {
+  content: attr(data-lineno); /* …, none) fallback not supported by any browser */
+  color: gray;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+}
+td, th {
+  border: thin solid silver;
+  padding: 0 1ex;
+}
+.borderless td, .borderless th {
+  border: 0;
+  padding: 0;
+  padding-right: 0.5em /* separate table cells */
+}
+
+table > caption {
+  text-align: left;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+table.captionbelow {
+  caption-side: bottom;
+}
+
+/* Document Header and Footer */
+header { border-bottom: 1px solid black; }
+footer { border-top: 1px solid black; }
+
+/* Images are block-level by default in Docutils */
+/* New HTML5 block elements: set display for older browsers */
+img, header, footer, main, aside, nav, section, figure, video, details {
+  display: block;
+}
+/* inline images */
+p img, p video, figure img, figure video {
+  display: inline;
+}
+
+</style>
+<style type="text/css">
+
+/* CSS31_ style sheet for the output of Docutils HTML writers.             */
+/* Rules for easy reading and pre-defined style variants.                  */
+/*                                                                         */
+/* :Author: Günter Milde, based on html4css1.css by David Goodger          */
+/* :Id: $Id: plain.css 9338 2023-04-08 21:08:47Z milde $                                                               */
+/* :Copyright: © 2015 Günter Milde.                                        */
+/* :License: Released under the terms of the `2-Clause BSD license`_,      */
+/*    in short:                                                            */
+/*                                                                         */
+/*    Copying and distribution of this file, with or without modification, */
+/*    are permitted in any medium without royalty provided the copyright   */
+/*    notice and this notice are preserved.                                */
+/*                                                                         */
+/*    This file is offered as-is, without any warranty.                    */
+/*                                                                         */
+/* .. _2-Clause BSD license: http://www.spdx.org/licenses/BSD-2-Clause     */
+/* .. _CSS3: https://www.w3.org/Style/CSS/                                 */
+
+
+/* Document Structure */
+/* ****************** */
+
+/* "page layout" */
+body {
+  margin: 0;
+  background-color: #dbdbdb;
+  --field-indent: 9em; /* default indent of fields in field lists */
+}
+main, footer, header {
+  line-height:1.6;
+  /* avoid long lines --> better reading */
+  /* optimum is 45…75 characters/line <http://webtypography.net/2.1.2> */
+  /* OTOH: lines should not be too short because of missing hyphenation, */
+  max-width: 50rem;
+  padding: 1px 2%; /* 1px on top avoids grey bar above title (mozilla) */
+  margin: auto;
+}
+main {
+  counter-reset: table figure;
+  background-color: white;
+}
+footer, header {
+  font-size: smaller;
+  padding: 0.5em 2%;
+  border: none;
+}
+
+/* Table of Contents */
+ul.auto-toc > li > p {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+nav.contents ul {
+  padding-left: 1em;
+}
+main > nav.contents ul ul ul ul:not(.auto-toc) {
+  list-style-type: '\2B29\ ';
+}
+main > nav.contents ul ul ul ul ul:not(.auto-toc) {
+  list-style-type: '\2B1D\ ';
+}
+
+/* Transitions */
+hr.docutils {
+  width: 80%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  clear: both;
+}
+
+/* Paragraphs */
+
+/* vertical space (parskip) */
+p, ol, ul, dl, li,
+div.line-block,
+.footnote, .citation,
+div > math,
+table {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+h1, h2, h3, h4, h5, h6,
+dd, details > p:last-child {
+  margin-bottom: 0.5em;
+}
+
+/* Lists */
+/* ===== */
+
+/* Definition Lists */
+/* Indent lists nested in definition lists */
+dd > ul:only-child, dd > ol:only-child { padding-left: 1em; }
+
+/* Description Lists */
+/* styled like in most dictionaries, encyclopedias etc. */
+dl.description {
+  display: flow-root;
+}
+dl.description > dt {
+  font-weight: bold;
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-right: 0.3em;
+}
+dl.description > dd:after {
+  display: table;
+  content: "";
+  clear: left; /* clearfix for empty descriptions */
+}
+
+/* Field Lists */
+
+dl.field-list > dd,
+dl.docinfo > dd {
+  margin-left: var(--field-indent); /* adapted in media queries or HTML */
+}
+
+/* example for custom field-name width */
+dl.field-list.narrow > dd {
+  --field-indent: 5em;
+}
+/* run-in: start field-body on same line after long field names */
+dl.field-list.run-in > dd p {
+  display: block;
+}
+
+/* Bibliographic Fields */
+
+/* generally, bibliographic fields use dl.docinfo */
+/* but dedication and abstract are placed into divs */
+div.abstract p.topic-title {
+  text-align: center;
+}
+div.dedication {
+  margin: 2em 5em;
+  text-align: center;
+  font-style: italic;
+}
+div.dedication p.topic-title {
+  font-style: normal;
+}
+
+/* disclosures */
+details { padding-left: 1em; }
+summary { margin-left: -1em; }
+
+/* Text Blocks */
+/* =========== */
+
+/* Literal Blocks */
+pre.literal-block, pre.doctest-block,
+pre.math, pre.code {
+  font-family: monospace;
+}
+
+/* Block Quotes and Topics */
+bockquote { margin: 1em 2em; }
+blockquote p.attribution,
+.topic p.attribution {
+  text-align: right;
+  margin-left: 20%;
+}
+
+/* Tables */
+/* ====== */
+
+/* th { vertical-align: bottom; } */
+
+table tr { text-align: left; }
+
+/* "booktabs" style (no vertical lines) */
+table.booktabs {
+  border: 0;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.booktabs * {
+  border: 0;
+}
+table.booktabs th {
+  border-bottom: thin solid;
+}
+
+/* numbered tables (counter defined in div.document) */
+table.numbered > caption:before {
+  counter-increment: table;
+  content: "Table " counter(table) ": ";
+  font-weight: bold;
+}
+
+/* Explicit Markup Blocks */
+/* ====================== */
+
+/* Footnotes and Citations */
+/* ----------------------- */
+
+/* line on the left */
+.footnote-list {
+  border-left: solid thin;
+  padding-left: 0.25em;
+}
+
+/* Directives */
+/* ---------- */
+
+/* Body Elements */
+/* ~~~~~~~~~~~~~ */
+
+/* Images and Figures */
+
+/* let content flow to the side of aligned images and figures */
+figure.align-left,
+img.align-left,
+video.align-left,
+object.align-left {
+  clear: left;
+  float: left;
+  margin-right: 1em;
+}
+figure.align-right,
+img.align-right,
+video.align-right,
+object.align-right {
+  clear: right;
+  float: right;
+  margin-left: 1em;
+}
+/* Stop floating sidebars, images and figures */
+h1, h2, h3, h4, footer, header { clear: both; }
+
+/* Numbered figures */
+figure.numbered > figcaption > p:before {
+  counter-increment: figure;
+  content: "Figure " counter(figure) ": ";
+  font-weight: bold;
+}
+
+/* Admonitions and System Messages */
+.caution p.admonition-title,
+.attention p.admonition-title,
+.danger p.admonition-title,
+.error p.admonition-title,
+.warning p.admonition-title,
+div.error {
+  color: red;
+}
+
+/* Sidebar */
+/* Move right. In a layout with fixed margins, */
+/* it can be moved into the margin.            */
+aside.sidebar {
+  width: 30%;
+  max-width: 26em;
+  float: right;
+  clear: right;
+  margin-left: 1em;
+  margin-right: -1%;
+  background-color: #fffffa;
+}
+
+
+/* Code */
+pre.code { padding: 0.7ex }
+pre.code, code { background-color: #eeeeee }
+/* basic highlighting: for a complete scheme, see */
+/* https://docutils.sourceforge.io/sandbox/stylesheets/ */
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+/* Math */
+/* for math-output=MathML (for math-output=HTML, see math.css) */
+math .boldsymbol {
+  font-weight: bold;
+}
+mstyle.mathscr, mi.mathscr {
+  font-family: STIX, XITSMathJax_Script, rsfs10,
+               "Asana Math", Garamond, cursive;
+}
+
+/* Epigraph           */
+/* Highlights         */
+/* Pull-Quote         */
+/* Compound Paragraph */
+/* Container          */
+
+/* Inline Markup */
+/* ============= */
+
+sup, sub { line-height: 0.8; } /* do not add leading for lines with sup/sub */
+
+/* Inline Literals                                          */
+/* possible values: normal, nowrap, pre, pre-wrap, pre-line */
+/*   span.docutils.literal { white-space: pre-wrap; }       */
+
+/* Hyperlink References */
+a { text-decoration: none; }
+
+/* External Targets       */
+/*   span.target.external */
+/* Internal Targets       */
+/*   span.target.internal */
+/* Footnote References    */
+/*   a[role="doc-noteref"] */
+/* Citation References    */
+/*   a.citation-reference */
+
+</style>
+</head>
+<body>
+<main id="regmap0">
+<h1 class="title">regmap0</h1>
+
+<p>U-chip Карта Регистров (страница №0)</p>
+<dl class="field-list simple">
+<dt>Base Address<span class="colon">:</span></dt>
+<dd><p>0x0</p>
+</dd>
+</dl>
+<section id="registers">
+<h2>Registers</h2>
+<table>
+<thead>
+<tr><th class="head"><p>Address</p></th>
+<th class="head"><p>Register Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>0x00</p></td>
+<td><p><a class="reference internal" href="#disdrvconfig0">DisDrvConfig0</a></p></td>
+<td><p>Настройка чувствительности силовых драйверов к DIS_DRVb - INJ[4:1], IGN[4:1]</p></td>
+</tr>
+<tr><td><p>0x01</p></td>
+<td><p><a class="reference internal" href="#disdrvconfig1">DisDrvConfig1</a></p></td>
+<td><p>Настройка чувствительности силовых драйверов к DIS_DRVb - RLY[8:1]</p></td>
+</tr>
+<tr><td><p>0x02</p></td>
+<td><p><a class="reference internal" href="#disdrvconfig2">DisDrvConfig2</a></p></td>
+<td><p>Настройка чувствительности силовых драйверов к DIS_DRVb - RLY[9], VLV[3:1], HTR[2:1], HB[2:1]</p></td>
+</tr>
+<tr><td><p>0x03</p></td>
+<td><p><a class="reference internal" href="#denconfig0">DenConfig0</a></p></td>
+<td><p>Настройка чувствительности силовых драйверов к EN_DRV - IGN[4:1]</p></td>
+</tr>
+<tr><td><p>0x04</p></td>
+<td><p><a class="reference internal" href="#denconfig1">DenConfig1</a></p></td>
+<td><p>Настройка чувствительности силовых драйвер к EN_DRV и EN_RLY12 - RLY[4:1]</p></td>
+</tr>
+<tr><td><p>0x05</p></td>
+<td><p><a class="reference internal" href="#denconfig2">DenConfig2</a></p></td>
+<td><p>Настройка чувствительности силовых драйвер к EN_DRV и EN_RLY12 - RLY[8:5]</p></td>
+</tr>
+<tr><td><p>0x06</p></td>
+<td><p><a class="reference internal" href="#denconfig3">DenConfig3</a></p></td>
+<td><p>Настройка чувствительности силовых драйвер к EN_DRV и EN_RLY12 - RLY[9], VLV[3:1]</p></td>
+</tr>
+<tr><td><p>0x07</p></td>
+<td><p><a class="reference internal" href="#denconfig4">DenConfig4</a></p></td>
+<td><p>Настройка чувствительности силовых драйверов к EN_DRV и EN_RLY12 - HTR[2:1], HB[2:1]</p></td>
+</tr>
+<tr><td><p>0x08</p></td>
+<td><p><a class="reference internal" href="#oeconfig0">OEConfig0</a></p></td>
+<td><p>Активация управления силовыми драйверами - IGN[4:1], INJ[4:1]</p></td>
+</tr>
+<tr><td><p>0x09</p></td>
+<td><p><a class="reference internal" href="#oeconfig1">OEConfig1</a></p></td>
+<td><p>Активация управления силовыми драйверами - RLY[8:1]</p></td>
+</tr>
+<tr><td><p>0x0a</p></td>
+<td><p><a class="reference internal" href="#oeconfig2">OEConfig2</a></p></td>
+<td><p>Активация управления силовыми драйверами - RLY[9], HTR[2:1], VLV[3:1]</p></td>
+</tr>
+<tr><td><p>0x0b</p></td>
+<td><p><a class="reference internal" href="#oeconfig3">OEConfig3</a></p></td>
+<td><p>Активациядеактивация управления силовыми драйверами - HB[2:1]</p></td>
+</tr>
+<tr><td><p>0x0c</p></td>
+<td><p><a class="reference internal" href="#ddconfig0">DDConfig0</a></p></td>
+<td><p>Выбор способа управления силовыми драйверами - IGN[4:1], INJ[4:1]</p></td>
+</tr>
+<tr><td><p>0x0d</p></td>
+<td><p><a class="reference internal" href="#ddconfig1">DDConfig1</a></p></td>
+<td><p>Выбор способа управления силовыми драйверами - RLY[8:1]</p></td>
+</tr>
+<tr><td><p>0x0e</p></td>
+<td><p><a class="reference internal" href="#ddconfig2">DDConfig2</a></p></td>
+<td><p>Выбор способа управления силовыми драйверами - RLY[9], HTR[2:1], VLV[3:1], HB[2:1]</p></td>
+</tr>
+<tr><td><p>0x0f</p></td>
+<td><p><a class="reference internal" href="#cont0">Cont0</a></p></td>
+<td><p>SPI-управление ctrl-сигналом силовых драйверов - IGN[4:1], INJ[4:1]</p></td>
+</tr>
+<tr><td><p>0x10</p></td>
+<td><p><a class="reference internal" href="#cont1">Cont1</a></p></td>
+<td><p>SPI-управление ctrl-сигналом силовых драйверов - RLY[8:1]</p></td>
+</tr>
+<tr><td><p>0x11</p></td>
+<td><p><a class="reference internal" href="#cont2">Cont2</a></p></td>
+<td><p>SPI-управление ctrl-сигналом силовых драйверов - RLY[9], HTR[2:1], VLV[3:1], HB[2:1]</p></td>
+</tr>
+<tr><td><p>0x12</p></td>
+<td><p><a class="reference internal" href="#briconfig0">BRIConfig0</a></p></td>
+<td><p>Настройка работы полумостов - HB[2:1]</p></td>
+</tr>
+<tr><td><p>0x13</p></td>
+<td><p><a class="reference internal" href="#igndiagconfig">IgnDiagConfig</a></p></td>
+<td><p>Настройка OL-диагностики - IGN[4:1]</p></td>
+</tr>
+<tr><td><p>0x14</p></td>
+<td><p><a class="reference internal" href="#outdiagconfig0">OutDiagConfig0</a></p></td>
+<td><p>Настройка конфигурации диагностик силовых драйверов - INJ[4:1]</p></td>
+</tr>
+<tr><td><p>0x15</p></td>
+<td><p><a class="reference internal" href="#outdiagconfig1">OutDiagConfig1</a></p></td>
+<td><p>Настройка конфигурации диагностик силовых драйверов - RLY[4:1]</p></td>
+</tr>
+<tr><td><p>0x16</p></td>
+<td><p><a class="reference internal" href="#outdiagconfig2">OutDiagConfig2</a></p></td>
+<td><p>Настройка конфигурации диагностик силовых драйверов - RLY[8:5]</p></td>
+</tr>
+<tr><td><p>0x17</p></td>
+<td><p><a class="reference internal" href="#outdiagconfig3">OutDiagConfig3</a></p></td>
+<td><p>Настройка конфигурации диагностик силовых драйверов - RLY[9], VLV[3:1]</p></td>
+</tr>
+<tr><td><p>0x18</p></td>
+<td><p><a class="reference internal" href="#outdiagconfig4">OutDiagConfig4</a></p></td>
+<td><p>Настройка конфигурации диагностик силовых драйверов - HTR[2:1], HB[2:1]</p></td>
+</tr>
+<tr><td><p>0x19</p></td>
+<td><p><a class="reference internal" href="#currlimconfig0">CurrLimConfig0</a></p></td>
+<td><p>Активация режима ограничения по току силовых драйверов в случае OC - INJ[4:1]</p></td>
+</tr>
+<tr><td><p>0x1a</p></td>
+<td><p><a class="reference internal" href="#currlimconfig1">CurrLimConfig1</a></p></td>
+<td><p>Активация режима ограничения по току силовых драйверов в случае OC - RLY[8:1]</p></td>
+</tr>
+<tr><td><p>0x1b</p></td>
+<td><p><a class="reference internal" href="#currlimconfig2">CurrLimConfig2</a></p></td>
+<td><p>Активация режима ограничения по току силовых драйверов в случае OC - RLY[9], VLV[3:1], HTR[2:1], HB[2:1]</p></td>
+</tr>
+<tr><td><p>0x1c</p></td>
+<td><p><a class="reference internal" href="#dlyoffconfig">DlyOffConfig</a></p></td>
+<td><p>Активация режима позднего отключения силовых драйверов в случае VDD5_UV, VDD5_OV, WD_FAIL, RSTb=0</p></td>
+</tr>
+<tr><td><p>0x1d</p></td>
+<td><p><a class="reference internal" href="#dinconfig0">DinConfig0</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - INJ[2:1]</p></td>
+</tr>
+<tr><td><p>0x1e</p></td>
+<td><p><a class="reference internal" href="#dinconfig1">DinConfig1</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - INJ[4:3]</p></td>
+</tr>
+<tr><td><p>0x1f</p></td>
+<td><p><a class="reference internal" href="#dinconfig2">DinConfig2</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - IGN[2:1]</p></td>
+</tr>
+<tr><td><p>0x20</p></td>
+<td><p><a class="reference internal" href="#dinconfig3">DinConfig3</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - IGN[4:3]</p></td>
+</tr>
+<tr><td><p>0x21</p></td>
+<td><p><a class="reference internal" href="#dinconfig4">DinConfig4</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - HTR[2:1]</p></td>
+</tr>
+<tr><td><p>0x22</p></td>
+<td><p><a class="reference internal" href="#dinconfig5">DinConfig5</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - HB[2:1]</p></td>
+</tr>
+<tr><td><p>0x23</p></td>
+<td><p><a class="reference internal" href="#dinconfig6">DinConfig6</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - RLY[2:1]</p></td>
+</tr>
+<tr><td><p>0x25</p></td>
+<td><p><a class="reference internal" href="#dinconfig7">DinConfig7</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - RLY[4:3]</p></td>
+</tr>
+<tr><td><p>0x26</p></td>
+<td><p><a class="reference internal" href="#dinconfig8">DinConfig8</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - RLY[6:5]</p></td>
+</tr>
+<tr><td><p>0x27</p></td>
+<td><p><a class="reference internal" href="#dinconfig9">DinConfig9</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - RLY[8:7]</p></td>
+</tr>
+<tr><td><p>0x28</p></td>
+<td><p><a class="reference internal" href="#dinconfig10">DinConfig10</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - RLY[9], VLV[1]</p></td>
+</tr>
+<tr><td><p>0x29</p></td>
+<td><p><a class="reference internal" href="#dinconfig11">DinConfig11</a></p></td>
+<td><p>Выбор Входа Непосредственно Управления для управления силовыми драйверами - VLV[3:2]</p></td>
+</tr>
+<tr><td><p>0x2a</p></td>
+<td><p><a class="reference internal" href="#wdconfig0">WDConfig0</a></p></td>
+<td><p>Настройки Сторожевых Таймеров (WatchDog)</p></td>
+</tr>
+<tr><td><p>0x2b</p></td>
+<td><p><a class="reference internal" href="#wdconfig1">WDConfig1</a></p></td>
+<td><p>Настройки SPI WatchDog</p></td>
+</tr>
+<tr><td><p>0x2b</p></td>
+<td><p><a class="reference internal" href="#vrsconfig0">VrsConfig0</a></p></td>
+<td><p>Конфигурация VR Сенсора</p></td>
+</tr>
+<tr><td><p>0x2c</p></td>
+<td><p><a class="reference internal" href="#vrsconfig1">VrsConfig1</a></p></td>
+<td><p>Конфигурация VR Сенсора</p></td>
+</tr>
+<tr><td><p>0x2d</p></td>
+<td><p><a class="reference internal" href="#vrsconfig2">VrsConfig2</a></p></td>
+<td><p>Конфигурация VR Сенсора</p></td>
+</tr>
+<tr><td><p>0x2e</p></td>
+<td><p><a class="reference internal" href="#mscconfig0">MscConfig0</a></p></td>
+<td><p>Конфигурация MSC Интерфейса</p></td>
+</tr>
+<tr><td><p>0x2f</p></td>
+<td><p><a class="reference internal" href="#mscconfig1">MscConfig1</a></p></td>
+<td><p>Конфигурация MSC Интерфейса</p></td>
+</tr>
+<tr><td><p>0x30</p></td>
+<td><p><a class="reference internal" href="#aoutconfig">AoutConfig</a></p></td>
+<td><p>Конфигурация AOUT буфера</p></td>
+</tr>
+<tr><td><p>0x31</p></td>
+<td><p><a class="reference internal" href="#rstbconfig">RstbConfig</a></p></td>
+<td><p>Конфигурация сброса цифровой логики</p></td>
+</tr>
+<tr><td><p>0x32</p></td>
+<td><p><a class="reference internal" href="#faultbconfig0">FaultbConfig0</a></p></td>
+<td><p>Конфигурация FAULTb вывода</p></td>
+</tr>
+<tr><td><p>0x33</p></td>
+<td><p><a class="reference internal" href="#faultbconfig1">FaultbConfig1</a></p></td>
+<td><p>Конфигурация FAULTb вывода</p></td>
+</tr>
+<tr><td><p>0x34</p></td>
+<td><p><a class="reference internal" href="#faultbconfig2">FaultbConfig2</a></p></td>
+<td><p>Конфигурация FAULTb вывода</p></td>
+</tr>
+<tr><td><p>0x35</p></td>
+<td><p><a class="reference internal" href="#vrsdiag">VrsDiag</a></p></td>
+<td><p>Диагностический регистр для VR Сенсора</p></td>
+</tr>
+<tr><td><p>0x36</p></td>
+<td><p><a class="reference internal" href="#supdiag">SupDiag</a></p></td>
+<td><p>Диагностический регистр для Мониторов питаний</p></td>
+</tr>
+<tr><td><p>0x37</p></td>
+<td><p><a class="reference internal" href="#extdiag0">ExtDiag0</a></p></td>
+<td><p>Диагностический регистр внутренних ошибок цифровых функций</p></td>
+</tr>
+<tr><td><p>0x38</p></td>
+<td><p><a class="reference internal" href="#extdiag1">ExtDiag1</a></p></td>
+<td><p>Диагностический регистр внутренних ошибок - потеря земли, OV/UV внутренних регуляторов</p></td>
+</tr>
+<tr><td><p>0x39</p></td>
+<td><p><a class="reference internal" href="#injdiag0">InjDiag0</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - INJ[2:1]</p></td>
+</tr>
+<tr><td><p>0x3a</p></td>
+<td><p><a class="reference internal" href="#injdiag1">InjDiag1</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - INJ[4:3]</p></td>
+</tr>
+<tr><td><p>0x3b</p></td>
+<td><p><a class="reference internal" href="#igndiag0">IgnDiag0</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - IGN[2:1]</p></td>
+</tr>
+<tr><td><p>0x3c</p></td>
+<td><p><a class="reference internal" href="#igndiag1">IgnDiag1</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - IGN[4:3]</p></td>
+</tr>
+<tr><td><p>0x3d</p></td>
+<td><p><a class="reference internal" href="#htrdiag0">HtrDiag0</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - HTR[2:1]</p></td>
+</tr>
+<tr><td><p>0x3e</p></td>
+<td><p><a class="reference internal" href="#rlydiag0">RlyDiag0</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - RLY[2:1]</p></td>
+</tr>
+<tr><td><p>0x3f</p></td>
+<td><p><a class="reference internal" href="#rlydiag1">RlyDiag1</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - RLY[4:3]</p></td>
+</tr>
+<tr><td><p>0x40</p></td>
+<td><p><a class="reference internal" href="#rlydiag2">RlyDiag2</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - RLY[6:5]</p></td>
+</tr>
+<tr><td><p>0x41</p></td>
+<td><p><a class="reference internal" href="#rlydiag3">RlyDiag3</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - RLY[8:7]</p></td>
+</tr>
+<tr><td><p>0x42</p></td>
+<td><p><a class="reference internal" href="#rlydiag4">RlyDiag4</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - RLY[9], VLV[1]</p></td>
+</tr>
+<tr><td><p>0x43</p></td>
+<td><p><a class="reference internal" href="#vlvdiag">VlvDiag</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - VLV[3:2]</p></td>
+</tr>
+<tr><td><p>0x44</p></td>
+<td><p><a class="reference internal" href="#hbdiag0">HbDiag0</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - HB[1]</p></td>
+</tr>
+<tr><td><p>0x45</p></td>
+<td><p><a class="reference internal" href="#hbdiag1">HbDiag1</a></p></td>
+<td><p>Диагностический регистр для силовых драйверов - HB[2]</p></td>
+</tr>
+<tr><td><p>0x46</p></td>
+<td><p><a class="reference internal" href="#rstdiag">RstDiag</a></p></td>
+<td><p>Статус причины сброса (reset) цифровой логики</p></td>
+</tr>
+<tr><td><p>0x47</p></td>
+<td><p><a class="reference internal" href="#glbstatus">GLBStatus</a></p></td>
+<td><p>Общий диагностический регистр цифровых функций</p></td>
+</tr>
+<tr><td><p>0x48</p></td>
+<td><p><a class="reference internal" href="#wdquestion">WdQuestion</a></p></td>
+<td><p>Статус актуального вопроса WD</p></td>
+</tr>
+<tr><td><p>0x49</p></td>
+<td><p><a class="reference internal" href="#wdpasscnt">WdPassCnt</a></p></td>
+<td><p>Статус refresh-счётчика WD</p></td>
+</tr>
+<tr><td><p>0x4a</p></td>
+<td><p><a class="reference internal" href="#wdfailcnt">WdFailCnt</a></p></td>
+<td><p>Статус счётчика ошибок и reset-счёстчика WD</p></td>
+</tr>
+<tr><td><p>0x4b</p></td>
+<td><p><a class="reference internal" href="#psstate0">PSState0</a></p></td>
+<td><p>Статусный регистр выходов силовых драйверов - IGN[4:1], INJ[4:1]</p></td>
+</tr>
+<tr><td><p>0x4c</p></td>
+<td><p><a class="reference internal" href="#psstate1">PSState1</a></p></td>
+<td><p>Статусный регистр выходов силовых драйверов - RLY[8:1]</p></td>
+</tr>
+<tr><td><p>0x4d</p></td>
+<td><p><a class="reference internal" href="#psstate2">PSState2</a></p></td>
+<td><p>Статусный регистр выходов силовых драйверов - RLY[9], HTR[2:1], VLV[3:1]</p></td>
+</tr>
+<tr><td><p>0x4e</p></td>
+<td><p><a class="reference internal" href="#psstate3">PSState3</a></p></td>
+<td><p>Статусный регистр выходов силовых драйверов - HB[2:1]</p></td>
+</tr>
+<tr><td><p>0x4f</p></td>
+<td><p><a class="reference internal" href="#instate0">InState0</a></p></td>
+<td><p>Статусный регистр входов Непосредственного Управления - IN[8:1]</p></td>
+</tr>
+<tr><td><p>0x50</p></td>
+<td><p><a class="reference internal" href="#instate1">InState1</a></p></td>
+<td><p>Статусный регистр входов Непосредственного Управления - IN[13:9]</p></td>
+</tr>
+<tr><td><p>0x51</p></td>
+<td><p><a class="reference internal" href="#enstate0">EnState0</a></p></td>
+<td><p>Статусный регистр цифровых входов и глобальной команды OE</p></td>
+</tr>
+<tr><td><p>0x52</p></td>
+<td><p><a class="reference internal" href="#maskid">MaskID</a></p></td>
+<td><p>Mask ID статус</p></td>
+</tr>
+<tr><td><p>0x53</p></td>
+<td><p><a class="reference internal" href="#cmd0">Cmd0</a></p></td>
+<td><p>Общие команды управления</p></td>
+</tr>
+<tr><td><p>0x54</p></td>
+<td><p><a class="reference internal" href="#cmdwdcheck">CmdWdCheck</a></p></td>
+<td><p>Посылка-ответ от MCU для WD</p></td>
+</tr>
+<tr><td><p>0x55</p></td>
+<td><p><a class="reference internal" href="#cmdwdldsd">CmdWdLdSd</a></p></td>
+<td><p>Настройка WD &quot;вопроса&quot;</p></td>
+</tr>
+<tr><td><p>0x56</p></td>
+<td><p><a class="reference internal" href="#cmdsoftrst">CmdSoftRst</a></p></td>
+<td><p>Команда с кодовыми посылками для активации soft-reset</p></td>
+</tr>
+<tr><td><p>0x57</p></td>
+<td><p><a class="reference internal" href="#mscrcmd0">MscRCmd0</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x58</p></td>
+<td><p><a class="reference internal" href="#mscrcmd1">MscRCmd1</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x59</p></td>
+<td><p><a class="reference internal" href="#mscrcmd2">MscRCmd2</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x5a</p></td>
+<td><p><a class="reference internal" href="#mscrcmd3">MscRCmd3</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x5b</p></td>
+<td><p><a class="reference internal" href="#mscrcmd4">MscRCmd4</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x5c</p></td>
+<td><p><a class="reference internal" href="#mscrcmd5">MscRCmd5</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x5d</p></td>
+<td><p><a class="reference internal" href="#mscrcmd6">MscRCmd6</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x5e</p></td>
+<td><p><a class="reference internal" href="#mscrcmd7">MscRCmd7</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x5f</p></td>
+<td><p><a class="reference internal" href="#mscrcmd8">MscRCmd8</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x60</p></td>
+<td><p><a class="reference internal" href="#mscrcmd9">MscRCmd9</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x61</p></td>
+<td><p><a class="reference internal" href="#mscrcmd10">MscRCmd10</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x62</p></td>
+<td><p><a class="reference internal" href="#mscrcmd11">MscRCmd11</a></p></td>
+<td><p>Настройка байта MSC Multiread посылки</p></td>
+</tr>
+<tr><td><p>0x7d</p></td>
+<td><p><a class="reference internal" href="#cmdspecialmode">CmdSpecialMode</a></p></td>
+<td><p>Активация специальных режимов - запись 8-битной кодовой посылки</p></td>
+</tr>
+<tr><td><p>0x7e</p></td>
+<td><p><a class="reference internal" href="#cmdtm">CmdTM</a></p></td>
+<td><p>Команда с кодовыми посылками для активации тестового режима</p></td>
+</tr>
+<tr><td><p>0x7f</p></td>
+<td><p><a class="reference internal" href="#pagevrb">PageVrb</a></p></td>
+<td><p>Команда с кодовой посылкой для переключения страницы карты регистров</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="disdrvconfig0">
+<h2>DisDrvConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DisDrvConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x0</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xff</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка чувствительности силовых драйверов к DIS_DRVb -
+INJ[4:1], IGN[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>DDIS_DRVB_CFG_IGN</p></td>
+<td><p>0xf</p></td>
+<td><dl>
+<dt>Для IGN[4:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при DIS_DRVb=0</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при DIS_DRVb=0</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>DDIS_DRVB_CFG_INJ</p></td>
+<td><p>0xf</p></td>
+<td><dl>
+<dt>Для INJ[4:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при DIS_DRVb=0</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при DIS_DRVb=0</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="disdrvconfig1">
+<h2>DisDrvConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DisDrvConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x1</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xff</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка чувствительности силовых драйверов к DIS_DRVb -
+RLY[8:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>DDIS_DRVB_CFG_RLY</p></td>
+<td><p>0xff</p></td>
+<td><dl>
+<dt>Для RLY[8:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при DIS_DRVb=0</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при DIS_DRVb=0</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="disdrvconfig2">
+<h2>DisDrvConfig2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DisDrvConfig2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x2</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xff</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка чувствительности силовых драйверов к DIS_DRVb -
+RLY[9], VLV[3:1], HTR[2:1], HB[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>DDIS_DRVB_CFG_HB</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для HB[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при DIS_DRVb=0</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при DIS_DRVb=0</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:4]</p></td>
+<td><p>DDIS_DRVB_CFG_HTR</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для HTR[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при DIS_DRVb=0</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при DIS_DRVb=0</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:1]</p></td>
+<td><p>DDIS_DRVB_CFG_VLV</p></td>
+<td><p>0x7</p></td>
+<td><dl>
+<dt>Для VLV[3:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при DIS_DRVb=0</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при DIS_DRVb=0</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>DDIS_DRVB_CFG_RLY</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Для RLY[9]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при DIS_DRVb=0</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при DIS_DRVb=0</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="denconfig0">
+<h2>DenConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DenConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x3</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x0f</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка чувствительности силовых драйверов к EN_DRV -
+IGN[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>DEN_DRV_CFG_IGN</p></td>
+<td><p>0xf</p></td>
+<td><dl>
+<dt>Для IGN[4:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="denconfig1">
+<h2>DenConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DenConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x4</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x1f</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка чувствительности силовых драйвер к EN_DRV и
+EN_RLY12 - RLY[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>DEN_RLY_CFG_RLY4</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[4]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>DEN_DRV_CFG_RLY4</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[4]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>DEN_RLY_CFG_RLY3</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[3]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>DEN_DRV_CFG_RLY3</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Для RLY[3]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>DEN_RLY_CFG_RLY2</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Для RLY[2]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>DEN_DRV_CFG_RLY2</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Для RLY[2]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>DEN_RLY_CFG_RLY1</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Для RLY[1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>DEN_DRV_CFG_RLY1</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Для RLY[1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="denconfig2">
+<h2>DenConfig2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DenConfig2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x5</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка чувствительности силовых драйвер к EN_DRV и
+EN_RLY12 - RLY[8:5]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>DEN_RLY_CFG_RLY8</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[8]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>DEN_DRV_CFG_RLY8</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[8]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>DEN_RLY_CFG_RLY7</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[7]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>DEN_DRV_CFG_RLY7</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[7]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>DEN_RLY_CFG_RLY6</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[6]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>DEN_DRV_CFG_RLY6</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[6]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>DEN_RLY_CFG_RLY5</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[5]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>DEN_DRV_CFG_RLY5</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[5]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="denconfig3">
+<h2>DenConfig3</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DenConfig3</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x6</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка чувствительности силовых драйвер к EN_DRV и
+EN_RLY12 - RLY[9], VLV[3:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>DEN_RLY_CFG_VLV3</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для VLV[3]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>DEN_DRV_CFG_VLV3</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для VLV[3]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>DEN_RLY_CFG_VLV2</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для VLV[2]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>DEN_DRV_CFG_VLV2</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для VLV[2]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>DEN_RLY_CFG_VLV1</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для VLV[1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>DEN_DRV_CFG_VLV1</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для VLV[1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>DEN_RLY_CFG_RLY9</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[9]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>DEN_DRV_CFG_RLY9</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[9]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="denconfig4">
+<h2>DenConfig4</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DenConfig4</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x7</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка чувствительности силовых драйверов к EN_DRV и
+EN_RLY12 - HTR[2:1], HB[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>DEN_RLY_CFG_HB2</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HB[2]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>DEN_DRV_CFG_HB2</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HB[2]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>DEN_RLY_CFG_HB1</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HB[1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>DEN_DRV_CFG_HB1</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HB[1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>DEN_RLY_CFG_HTR2</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HTR[2]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>DEN_DRV_CFG_HTR2</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HTR[2]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>DEN_RLY_CFG_HTR1</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HTR[1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_RLY12=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_RLY12=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>DEN_DRV_CFG_HTR1</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HTR[1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер не отключается при EN_DRV=&quot;0&quot;</div>
+<div class="line">&quot;1&quot; - силовой драйвер отключается при EN_DRV=&quot;0&quot;</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="oeconfig0">
+<h2>OEConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>OEConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x8</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Активация управления силовыми драйверами - IGN[4:1],
+INJ[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>INJ_OE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для INJ[4:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление деактивировано</div>
+<div class="line">&quot;1&quot; - управление активировано</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>IGN_OE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для IGN[4:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление деактивировано</div>
+<div class="line">&quot;1&quot; - управление активировано</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="oeconfig1">
+<h2>OEConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>OEConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x9</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Активация управления силовыми драйверами - RLY[8:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>RLY_OE</p></td>
+<td><p>0x00</p></td>
+<td><dl>
+<dt>Для RLY[8:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление деактивировано</div>
+<div class="line">&quot;1&quot; - управление активировано</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="oeconfig2">
+<h2>OEConfig2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>OEConfig2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0xa</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Активация управления силовыми драйверами - RLY[9],
+HTR[2:1], VLV[3:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>[5:3]</p></td>
+<td><p>VLV_OE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для VLV[3:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление деактивировано</div>
+<div class="line">&quot;1&quot; - управление активировано</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[2:1]</p></td>
+<td><p>HTR_OE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HTR[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление деактивировано</div>
+<div class="line">&quot;1&quot; - управление активировано</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>RLY_OE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[9]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление деактивировано</div>
+<div class="line">&quot;1&quot; - управление активировано</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="oeconfig3">
+<h2>OEConfig3</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>OEConfig3</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0xb</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Активациядеактивация управления силовыми драйверами -
+HB[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>[3:2]</p></td>
+<td><p>LS_OE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для LS[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление деактивировано</div>
+<div class="line">&quot;1&quot; - управление активировано</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[1:0]</p></td>
+<td><p>HS_OE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HS[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление деактивировано</div>
+<div class="line">&quot;1&quot; - управление активировано</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ddconfig0">
+<h2>DDConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DDConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0xc</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор способа управления силовыми драйверами - IGN[4:1],
+INJ[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>INJ_DD</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для INJ[4:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление осуществляется через SPI</div>
+<div class="line">&quot;1&quot; - управление осуществляется через Входы Непосредственного Управления</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>IGN_DD</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для IGN[4:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление осуществляется через SPI</div>
+<div class="line">&quot;1&quot; - управление осуществляется через Входы Непосредственного Управления</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ddconfig1">
+<h2>DDConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DDConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0xd</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор способа управления силовыми драйверами - RLY[8:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>RLY_DD</p></td>
+<td><p>0x00</p></td>
+<td><dl>
+<dt>Для RLY[8:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление осуществляется через SPI</div>
+<div class="line">&quot;1&quot; - управление осуществляется через Входы Непосредственного Управления</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ddconfig2">
+<h2>DDConfig2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DDConfig2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0xe</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор способа управления силовыми драйверами - RLY[9],
+HTR[2:1], VLV[3:1], HB[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>HB_DD</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HB[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление осуществляется через SPI</div>
+<div class="line">&quot;1&quot; - управление осуществляется через Входы Непосредственного Управления</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:3]</p></td>
+<td><p>VLV_DD</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для VLV[3:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление осуществляется через SPI</div>
+<div class="line">&quot;1&quot; - управление осуществляется через Входы Непосредственного Управления</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[2:1]</p></td>
+<td><p>HTR_DD</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HTR[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление осуществляется через SPI</div>
+<div class="line">&quot;1&quot; - управление осуществляется через Входы Непосредственного Управления</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>RLY_DD</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[9]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - управление осуществляется через SPI</div>
+<div class="line">&quot;1&quot; - управление осуществляется через Входы Непосредственного Управления</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cont0">
+<h2>Cont0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>Cont0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0xf</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>SPI-управление ctrl-сигналом силовых драйверов - IGN[4:1],
+INJ[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>INJ_ON</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для INJ[4:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - силовой драйвер ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>IGN_ON</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для IGN[4:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - силовой драйвер ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cont1">
+<h2>Cont1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>Cont1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x10</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>SPI-управление ctrl-сигналом силовых драйверов - RLY[8:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>RLY_ON</p></td>
+<td><p>0x00</p></td>
+<td><dl>
+<dt>Для RLY[8:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - силовой драйвер ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cont2">
+<h2>Cont2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>Cont2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x11</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>SPI-управление ctrl-сигналом силовых драйверов - RLY[9],
+HTR[2:1], VLV[3:1], HB[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>HB_ON</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HB[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - силовой драйвер ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:3]</p></td>
+<td><p>VLV_ON</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для VLV[3:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - силовой драйвер ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[2:1]</p></td>
+<td><p>HTR_ON</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HTR[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - силовой драйвер ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>RLY_ON</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[9]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - силовой драйвер ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - силовой драйвер ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="briconfig0">
+<h2>BRIConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>BRIConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x12</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка работы полумостов - HB[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>[3:2]</p></td>
+<td><p>HS_LS_MODE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Настройка ctrl-сигнала для HB[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - ctrl-сигнал идёт на LS</div>
+<div class="line">&quot;1&quot; - ctrl-сигнал идёт на HS</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[1:0]</p></td>
+<td><p>FW_MODE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Режим Free Wheeling для HB[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="igndiagconfig">
+<h2>IgnDiagConfig</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>IgnDiagConfig</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x13</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x05</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка OL-диагностики - IGN[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:3]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x00</p></td>
+<td></td>
+</tr>
+<tr><td><p>[2:1]</p></td>
+<td><p>SEL_OL_TH_IGN</p></td>
+<td><p>0x2</p></td>
+<td><p>Настройка порога OL-диагностики</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>EN_DIAG_OL_IGN</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Активация OL-диагностики:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - диагностика ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outdiagconfig0">
+<h2>OutDiagConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>OutDiagConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x14</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xff</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка конфигурации диагностик силовых драйверов -
+INJ[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>DIAG_INJ4</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для INJ[4]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:4]</p></td>
+<td><p>DIAG_INJ3</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для INJ[3]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:2]</p></td>
+<td><p>DIAG_INJ2</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для INJ[2]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[1:0]</p></td>
+<td><p>DIAG_INJ1</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для INJ[1]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outdiagconfig1">
+<h2>OutDiagConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>OutDiagConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x15</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xff</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка конфигурации диагностик силовых драйверов -
+RLY[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>DIAG_RLY4</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для RLY[4]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:4]</p></td>
+<td><p>DIAG_RLY3</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для RLY[3]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:2]</p></td>
+<td><p>DIAG_RLY2</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для RLY[2]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[1:0]</p></td>
+<td><p>DIAG_RLY1</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для RLY[1]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outdiagconfig2">
+<h2>OutDiagConfig2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>OutDiagConfig2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x16</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xff</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка конфигурации диагностик силовых драйверов -
+RLY[8:5]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>DIAG_RLY8</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для RLY[8]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:4]</p></td>
+<td><p>DIAG_RLY7</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для RLY[7]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:2]</p></td>
+<td><p>DIAG_RLY6</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для RLY[6]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[1:0]</p></td>
+<td><p>DIAG_RLY5</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для RLY[5]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outdiagconfig3">
+<h2>OutDiagConfig3</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>OutDiagConfig3</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x17</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xff</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка конфигурации диагностик силовых драйверов -
+RLY[9], VLV[3:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>DIAG_VLV3</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для VLV[3]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:4]</p></td>
+<td><p>DIAG_VLV2</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для VLV[2]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:2]</p></td>
+<td><p>DIAG_VLV1</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для VLV[1]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[1:0]</p></td>
+<td><p>DIAG_RLY9</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для RLY[9]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outdiagconfig4">
+<h2>OutDiagConfig4</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>OutDiagConfig4</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x18</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xff</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка конфигурации диагностик силовых драйверов -
+HTR[2:1], HB[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>DIAG_HB2</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для HB[2]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:4]</p></td>
+<td><p>DIAG_HB1</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для HB[1]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:2]</p></td>
+<td><p>DIAG_HTR2</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для HTR[2]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[1:0]</p></td>
+<td><p>DIAG_HTR1</p></td>
+<td><p>0x3</p></td>
+<td><dl>
+<dt>Для HTR[1]:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все диагностики ВЫКЛ.</div>
+<div class="line">0x1 - все диагностики ВЫКЛ.</div>
+<div class="line">0x2 -только SCG/SCB диагностика ВКЛ.</div>
+<div class="line">0x3 - SCG/SCB и OL диагностика ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="currlimconfig0">
+<h2>CurrLimConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>CurrLimConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x19</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Активация режима ограничения по току силовых драйверов в
+случае OC - INJ[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>CURR_LIM_INJ</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для INJ[4:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="currlimconfig1">
+<h2>CurrLimConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>CurrLimConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x1a</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Активация режима ограничения по току силовых драйверов в
+случае OC - RLY[8:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>CURR_LIM_RLY</p></td>
+<td><p>0x00</p></td>
+<td><dl>
+<dt>Для RLY[8:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="currlimconfig2">
+<h2>CurrLimConfig2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>CurrLimConfig2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x1b</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Активация режима ограничения по току силовых драйверов в
+случае OC - RLY[9], VLV[3:1], HTR[2:1], HB[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>CURR_LIM_HB</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HB[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:4]</p></td>
+<td><p>CURR_LIM_HTR</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HTR[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:1]</p></td>
+<td><p>CURR_LIM_VLV</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для VLV[3:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>CURR_LIM_RLY</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[9]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlyoffconfig">
+<h2>DlyOffConfig</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DlyOffConfig</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x1c</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Активация режима позднего отключения силовых драйверов в
+случае VDD5_UV, VDD5_OV, WD_FAIL, RSTb=0</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:5]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>[4:3]</p></td>
+<td><p>DEL_OFF_HB</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для HB[2:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[2:0]</p></td>
+<td><p>DEL_OFF_RLY</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Для RLY[3:1]:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig0">
+<h2>DinConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x1d</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x21</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - INJ[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>INJ_IN2</p></td>
+<td><p>0x2</p></td>
+<td><p>Для INJ[2]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>INJ_IN1</p></td>
+<td><p>0x1</p></td>
+<td><p>Для INJ[1]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig1">
+<h2>DinConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x1e</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x43</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - INJ[4:3]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>INJ_IN4</p></td>
+<td><p>0x4</p></td>
+<td><p>Для INJ[4]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>INJ_IN3</p></td>
+<td><p>0x3</p></td>
+<td><p>Для INJ[3]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig2">
+<h2>DinConfig2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x1f</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xba</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - IGN[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>IGN_IN2</p></td>
+<td><p>0xb</p></td>
+<td><p>Для IGN[2]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>IGN_IN1</p></td>
+<td><p>0xa</p></td>
+<td><p>Для IGN[1]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig3">
+<h2>DinConfig3</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig3</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x20</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xdc</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - IGN[4:3]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>IGN_IN4</p></td>
+<td><p>0xd</p></td>
+<td><p>Для IGN[4]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>IGN_IN3</p></td>
+<td><p>0xc</p></td>
+<td><p>Для IGN[3]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig4">
+<h2>DinConfig4</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig4</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x21</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - HTR[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>HTR_IN2</p></td>
+<td><p>0x0</p></td>
+<td><p>Для HTR[2]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>HTR_IN1</p></td>
+<td><p>0x0</p></td>
+<td><p>Для HTR[1]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig5">
+<h2>DinConfig5</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig5</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x22</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - HB[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>HB_IN2</p></td>
+<td><p>0x0</p></td>
+<td><p>Для HB[2]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>HB_IN1</p></td>
+<td><p>0x0</p></td>
+<td><p>Для HB[1]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig6">
+<h2>DinConfig6</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig6</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x23</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - RLY[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>RLY_IN2</p></td>
+<td><p>0x0</p></td>
+<td><p>Для RLY[2]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>RLY_IN1</p></td>
+<td><p>0x0</p></td>
+<td><p>Для RLY[1]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig7">
+<h2>DinConfig7</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig7</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x25</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - RLY[4:3]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>RLY_IN4</p></td>
+<td><p>0x0</p></td>
+<td><p>Для RLY[4]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>RLY_IN3</p></td>
+<td><p>0x0</p></td>
+<td><p>Для RLY[3]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig8">
+<h2>DinConfig8</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig8</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x26</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - RLY[6:5]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>RLY_IN6</p></td>
+<td><p>0x0</p></td>
+<td><p>Для RLY[6]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>RLY_IN5</p></td>
+<td><p>0x0</p></td>
+<td><p>Для RLY[5]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig9">
+<h2>DinConfig9</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig9</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x27</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x80</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - RLY[8:7]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>RLY_IN8</p></td>
+<td><p>0x8</p></td>
+<td><p>Для RLY[8]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>RLY_IN7</p></td>
+<td><p>0x0</p></td>
+<td><p>Для RLY[7]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig10">
+<h2>DinConfig10</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig10</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x28</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x59</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - RLY[9], VLV[1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>VLV_IN1</p></td>
+<td><p>0x5</p></td>
+<td><p>Для VLV[1]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>RLY_IN9</p></td>
+<td><p>0x9</p></td>
+<td><p>Для RLY[9]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dinconfig11">
+<h2>DinConfig11</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>DinConfig11</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x29</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x76</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Выбор Входа Непосредственно Управления для управления
+силовыми драйверами - VLV[3:2]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>VLV_IN3</p></td>
+<td><p>0x7</p></td>
+<td><p>Для VLV[3]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>VLV_IN2</p></td>
+<td><p>0x6</p></td>
+<td><p>Для VLV[2]: 0x1 - IN1, 0x2 - IN2, 0x3 - IN3, 0x4 - IN4, 0x5 - IN5, 0x6 - IN6, 0x7 - IN7, 0x8 - IN8, 0x9 - IN9, 0xA - IN10, 0xB - IN11, 0xC - IN12, 0xD - IN13</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wdconfig0">
+<h2>WDConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>WDConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x2a</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x20</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройки Сторожевых Таймеров (WatchDog)</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>VRS_WD_EN</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Активация VRS WatchDog:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:4]</p></td>
+<td><p>VRS_WD_DURATION</p></td>
+<td><p>0x2</p></td>
+<td><p>Настройка порога VRS WatchDog</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>WD_DURATION</p></td>
+<td><p>0x0</p></td>
+<td><p>Настройка длительности ожидания &quot;посылки-ответа&quot; SPI WatchDog</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wdconfig1">
+<h2>WDConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>WDConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x2b</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройки SPI WatchDog</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:5]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SPI_RST_ERR_FS</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Настройка порога генерации FAULTb, RSTb:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - стандартный порог</div>
+<div class="line">&quot;1&quot; - уменьшенный в два раза порог</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:2]</p></td>
+<td><p>SPI_RFH_CNT_CFG</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Настройка порога счетчика успехов:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - 6 успехов</div>
+<div class="line">0x1 - 6 успехов</div>
+<div class="line">0x2 - 4 успеха</div>
+<div class="line">0x3 - 2 успеха</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[1:0]</p></td>
+<td><p>SPI_ERR_CNT_CFG</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Настройка порога счетчика ошибок:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - 6 ошибок</div>
+<div class="line">0x1 - 6 ошибок</div>
+<div class="line">0x2 - 4 ошибки</div>
+<div class="line">0x3 - 2 ошибки</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="vrsconfig0">
+<h2>VrsConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>VrsConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x2b</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x02</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Конфигурация VR Сенсора</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>VRSO_SPI_CTRL</p></td>
+<td><p>0x0</p></td>
+<td><p>Сигнал установки значения на VRS_OUT в режиме прямого управления</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>VRSO_SPI_CTRL_MODE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Активация режима прямого управления управления VRS_OUT:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:4]</p></td>
+<td><p>VRS_TEST_CFG</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Настройка режима тестирования:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - все тесты</div>
+<div class="line">0x1 - SCG</div>
+<div class="line">0x2 - SCB</div>
+<div class="line">0x3 - OL</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:2]</p></td>
+<td><p>VRS_REF</p></td>
+<td><p>0x0</p></td>
+<td><p>Настройка значения vrs_ref</p></td>
+</tr>
+<tr><td><p>[1:0]</p></td>
+<td><p>VRS_MODE_CFG</p></td>
+<td><p>0x2</p></td>
+<td><dl>
+<dt>Настройка режима vrs_mode:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - ручной</div>
+<div class="line">0x1 - Hall-сенсор</div>
+<div class="line">0x2 - автоматический</div>
+<div class="line">0x3 - pre diag</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="vrsconfig1">
+<h2>VrsConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>VrsConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x2c</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x78</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Конфигурация VR Сенсора</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>VRSO_EN</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Активация/деактивация VROUT-буфера:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>VRSEFF</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Активация/деактивация маскирования по Falling Edge:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>VRSFF</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Активация/деактивация фильтрации по Falling Edge:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>VRSRF</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Активация/деактивация фильтрации по Rising Edge:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>VRSM</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка режима фильтации:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - адаптивный</div>
+<div class="line">&quot;1&quot; - ручной</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[2:0]</p></td>
+<td><p>VRSF</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Настройка времени фильтрации в ручном режиме:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - 2мкс</div>
+<div class="line">0x1 - 4мкс</div>
+<div class="line">0x2 - 8мкс</div>
+<div class="line">0x3 - 16мкс</div>
+<div class="line">0x4 - 32мкс</div>
+<div class="line">0x5 - 64мкс</div>
+<div class="line">0x6 - 128мкс</div>
+<div class="line">0x7 - 200мкс</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="vrsconfig2">
+<h2>VrsConfig2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>VrsConfig2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x2d</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Конфигурация VR Сенсора</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>[6:0]</p></td>
+<td><p>VRS_OL_DIAG</p></td>
+<td><p>0x00</p></td>
+<td><p>Настройка OL-диагностики VR Сенсора</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscconfig0">
+<h2>MscConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x2e</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Конфигурация MSC Интерфейса</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>MSC_SV_EN</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Активация/деактивация SuperVision функции:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[2:0]</p></td>
+<td><p>MSC_CLK_DIV_CFG</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Настройка делителя частоты SCLK для Upstream-посылок:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - 64</div>
+<div class="line">0x1 - 4</div>
+<div class="line">0x2 - 8</div>
+<div class="line">0x3 - 16</div>
+<div class="line">0x4 - 32</div>
+<div class="line">0x5 - 64</div>
+<div class="line">0x6 - 128</div>
+<div class="line">0x7 - 256</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscconfig1">
+<h2>MscConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x2f</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x01</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Конфигурация MSC Интерфейса</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>OD_MISO</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Активация режима OpenDrain для MSC:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[6:3]</p></td>
+<td><p>MSC_ADDR_CFG</p></td>
+<td><p>0x0</p></td>
+<td><p>Значения адресного поля в случае выбора фиксированного адреса</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>MSC_ADDR_MODE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Активация режима установки адресного поля:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - автоматический подбор</div>
+<div class="line">&quot;1&quot; - фиксированный MSC_ADDR_CFG</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>MSC_UP_FRAME</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Настройка типа Upstream кадра:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - без адресного поля</div>
+<div class="line">&quot;1&quot; - с адресным полем</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>MSC_CRC_CFG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Тип бита четности:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - нечётный</div>
+<div class="line">&quot;1&quot; - чётный</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aoutconfig">
+<h2>AoutConfig</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>AoutConfig</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x30</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x10</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Конфигурация AOUT буфера</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>VPWR_RNG</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Настройка порогов VPWR-монитора:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - sel_vpwr_ov_th=0 - 12В</div>
+<div class="line">&quot;1&quot; - sel_vpwr_ov_th=1 - 24В</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[5:4]</p></td>
+<td><p>VDDIO_RNG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка порогов VDDIO-монитора:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - sel_vddio_uv_th=0, sel_vddio_ov_th=0 - 3.3В</div>
+<div class="line">0x1 - sel_vddio_uv_th=0, sel_vddio_ov_th=1 - широкий диапазон</div>
+<div class="line">0x2 - sel_vddio_uv_th=1, sel_vddio_ov_th=0 - узкий диапазон</div>
+<div class="line">0x3 - sel_vddio_uv_th=1, sel_vddio_ov_th=1 - 5В</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>AMUX</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Настройка AOUT-буфера:</dt>
+<dd><div class="line-block">
+<div class="line">0x0 - en_aout=0</div>
+<div class="line">0x1 - en_aout=1, sel_aout_vrs_amp=1 - выводится дифф. напряжения усилителя VRS</div>
+<div class="line">0x2 - en_aout=1, sel_aout_vdd5_sns=1 - выводится VDD5</div>
+<div class="line">0x3 - en_aout=1, sel_aout_vddio_sns=1 - выводится VDDIO</div>
+<div class="line">0x4 - en_aout=1, sel_aout_vpwr_sns=1 - выводится VPWR</div>
+<div class="line">0x5 - en_aout=1, sel_aout_vtemp_sns=1 - выводится напряжения температурного датчика</div>
+<div class="line">any: en_aout=0</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rstbconfig">
+<h2>RstbConfig</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>RstbConfig</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x31</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x07</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Конфигурация сброса цифровой логики</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:3]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x00</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>WD_RSTB_CFG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Сброс цифрвой логики по  переполнению WD счетчика ошибок:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - reset не происходит</div>
+<div class="line">&quot;1&quot; - reset происходит</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>VDD5_OV_RSTB_CFG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Сброс цифрвой логики по VDD5_OV:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - reset не происходит</div>
+<div class="line">&quot;1&quot; - reset происходит</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>VDD5_UV_RSTB_CFG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Сброс цифррвой логики по VDD5_UV:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - reset не происходит</div>
+<div class="line">&quot;1&quot; - reset происходит</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="faultbconfig0">
+<h2>FaultbConfig0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>FaultbConfig0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x32</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x3f</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Конфигурация FAULTb вывода</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>FAULTB_LATCH_DATA</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Режим репортирования ошибок:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - репортируются актуальные ошибки</div>
+<div class="line">&quot;1&quot; - репортируются ошибки, хранящиеся в диагностических регистрах</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>GND_FAIL_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на ошибки потери земли (AGND/PGND/GNDIO_LOSS):</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>VRS_OL_SC_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на ошибки диагностик VRS (OL, SCG, SCB):</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>FAULT_VRS_WD_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на ошибку по VRS WD:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>OTP_FAIL_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на OTP-ошибку (ошибка коммуникации OTP, обращение к занятому контроллеру, ошибка чтения OTP,  ошибка tm тестов margin off, margin1, margin2, selftest):</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>SPI_MSC_FAIL_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на обращения по SPI/MSC к неверному адресу:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>WD_SV_FAIL_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на ошибки по WD и SV функциям:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="faultbconfig1">
+<h2>FaultbConfig1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>FaultbConfig1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x33</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0xff</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Конфигурация FAULTb вывода</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>VDD5_OV_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на OV по VDD5:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>VDD5_UV_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на UV по VDD5:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>VPWR_OV_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на OV по VPWR:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>VPWR_UV_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на UV по VPWR:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>VDDIO_OV_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на OV по VDDIO:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>VDDIO_UV_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на UV по VDDIO:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>CP_UV_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на UV по CP:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SUP_REGL_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на OV/UV по vdig_1p5v, vana_1p5v:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="faultbconfig2">
+<h2>FaultbConfig2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>FaultbConfig2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x34</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x3f</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Конфигурация FAULTb вывода</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>FAULTB_SPI_CTRL</p></td>
+<td><p>0x0</p></td>
+<td><p>Значение сигнала FAULTb в случае прямого управления</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>FAULTB_SPI_CTRL_MODE</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Активация/деактивация режима прямого управления FAULTb:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - прямое управление ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - прямое управление ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>DNDIS_DRV_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на DIS_DRVb=0:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>OL_IGN_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на ошибки OL-диагностики для IGN:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>SC_IGN_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на ошибки SCG/SCB-защиты для IGN:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>OC_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на ошибки OC-защиты для RLY/INJ/VLV/HTR/HB:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>TSD_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на ошибки TSD-защиты для RLY/INJ/VLV/HTR/HB/IGN:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>OL_SC_DIAG</p></td>
+<td><p>0x1</p></td>
+<td><dl>
+<dt>Настройка реакции FAULTb на ошибки OL-диагностик для RLY/INJ/VLV/HTR/HB, SCG-диагностик для RLY/INJ/VLV/HTR/HB_LS, SCB-диагностики для HB_HS:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - игнорирурет</div>
+<div class="line">&quot;1&quot; - репортирует</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="vrsdiag">
+<h2>VrsDiag</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>VrsDiag</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x35</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для VR Сенсора</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:5]</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>VRS_TH_FAULT</p></td>
+<td><p>Нарушение порога компаратора</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>VRS_OL</p></td>
+<td><p>Обрыв нагрузки</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>VRS_SCG</p></td>
+<td><p>КЗ на землю</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>VRS_SCB</p></td>
+<td><p>КЗ на питание</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>FAULT_VRS_WD</p></td>
+<td><p>Многоскратный сбой по VRS WD</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="supdiag">
+<h2>SupDiag</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>SupDiag</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x36</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для Мониторов питаний</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>VDD5_OV</p></td>
+<td><p>OverVoltage по VDD5</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>VDD5_UV</p></td>
+<td><p>UnderVoltage по VDD5</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>VPWR_OV</p></td>
+<td><p>OverVoltage по VPWR</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>VPWR_UV</p></td>
+<td><p>UnderVoltage по VPWR</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>VDDIO_OV</p></td>
+<td><p>OverVoltage по VDDIO</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>VDDIO_UV</p></td>
+<td><p>UnderVoltage по VDDIO</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>CP_UV</p></td>
+<td><p>UnderVoltage по CP</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SUP_REGL</p></td>
+<td><p>Нарушения по vana_1p5v, vdig_1p5v (см. регистр ExtDiag1)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="extdiag0">
+<h2>ExtDiag0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>ExtDiag0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x37</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр внутренних ошибок цифровых функций</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>SELF_TEST_ERROR</p></td>
+<td><p>Ошибка сравнения данных при тестовых проверках (margin off, margine1, margin2, selftest)</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OTP_USAGE_FAULT</p></td>
+<td><p>Обращение к занятомму контроллеру или неправльная команда OTP контроллера</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>FUSE_CHECK_ERROR</p></td>
+<td><p>При чтении OTP обнаружены неверные данные</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>WD_FAIL</p></td>
+<td><p>Исчерпан лимит ошибок по WD</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>WD_WARN</p></td>
+<td><p>Предупреждение о наличии множественных нарушений по WD</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>MSC_SV_ERROR</p></td>
+<td><p>Ошибка истечения SuperVision таймера</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>MSC_SPI_ERROR</p></td>
+<td><p>Ошибка обращения по SPI/MSC к неверному адресу</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="extdiag1">
+<h2>ExtDiag1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>ExtDiag1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x38</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр внутренних ошибок - потеря земли,
+OV/UV внутренних регуляторов</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>DIS_DRV</p></td>
+<td><p>Статус DIS_DRVb=0</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>VANA_1P5V_OV</p></td>
+<td><p>Ошибка OverVoltage по vana_1p5v</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>VANA_1P5V_UV</p></td>
+<td><p>Ошибка UnderVoltage по vana_1p5v</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>VDIG_1P5V_UV</p></td>
+<td><p>Ошибка UnderVoltage по vdig_1p5v</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>VDIG_1P5V_OV</p></td>
+<td><p>Ошибка OverVoltage по vdig_1p5v</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>GNDIO_LOSS</p></td>
+<td><p>Ошибка обрыва земли GNDIO</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>AGND_LOSS</p></td>
+<td><p>Ошибка обрыва земли AGND</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>PGND_LOSS</p></td>
+<td><p>Ошибка обрыва земли PGND</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="injdiag0">
+<h2>InjDiag0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>InjDiag0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x39</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - INJ[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>OC_INJ2</p></td>
+<td><p>OC для INJ[2]</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_INJ2</p></td>
+<td><p>TSD для INJ[2]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OL_INJ2</p></td>
+<td><p>OL для INJ[2]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_INJ2</p></td>
+<td><p>SCG для INJ[2]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_INJ1</p></td>
+<td><p>OC для INJ[1]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_INJ1</p></td>
+<td><p>TSD для INJ[1]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_INJ1</p></td>
+<td><p>OL для INJ[1]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_INJ1</p></td>
+<td><p>SCG для INJ[1]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="injdiag1">
+<h2>InjDiag1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>InjDiag1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x3a</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - INJ[4:3]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>OC_INJ4</p></td>
+<td><p>OC для INJ[4]</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_INJ4</p></td>
+<td><p>TSD для INJ[4]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OL_INJ4</p></td>
+<td><p>OL для INJ[4]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_INJ4</p></td>
+<td><p>SCG для INJ[4]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_INJ3</p></td>
+<td><p>OC для INJ[3]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_INJ3</p></td>
+<td><p>TSD для INJ[3]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_INJ3</p></td>
+<td><p>OL для INJ[3]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_INJ3</p></td>
+<td><p>SCG для INJ[3]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="igndiag0">
+<h2>IgnDiag0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>IgnDiag0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x3b</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - IGN[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_IGN1</p></td>
+<td><p>TSD для IGN[1:2]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>SCB_IGN2</p></td>
+<td><p>SCB для IGN[2]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>OL_IGN2</p></td>
+<td><p>OL для IGN[2]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>SCG_IGN2</p></td>
+<td><p>SCG для IGN[2]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>SCB_IGN1</p></td>
+<td><p>SCB для IGN[1]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_IGN1</p></td>
+<td><p>OL для IGN[1]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_IGN1</p></td>
+<td><p>SCG для IGN[1]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="igndiag1">
+<h2>IgnDiag1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>IgnDiag1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x3c</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - IGN[4:3]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_IGN2</p></td>
+<td><p>TSD для IGN[3:4]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>SCB_IGN4</p></td>
+<td><p>SCB для IGN[4]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>OL_IGN4</p></td>
+<td><p>OL для IGN[4]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>SCG_IGN4</p></td>
+<td><p>SCG для IGN[4]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>SCB_IGN3</p></td>
+<td><p>SCB для IGN[3]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_IGN3</p></td>
+<td><p>OL для IGN[3]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_IGN3</p></td>
+<td><p>SCG для IGN[3]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="htrdiag0">
+<h2>HtrDiag0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>HtrDiag0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x3d</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - HTR[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>OC_HTR2</p></td>
+<td><p>OC для HTR[2]</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_HTR2</p></td>
+<td><p>TSD для HTR[2]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OL_HTR2</p></td>
+<td><p>OL для HTR[2]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_HTR2</p></td>
+<td><p>SCG для HTR[2]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_HTR1</p></td>
+<td><p>OC для HTR[1]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_HTR1</p></td>
+<td><p>TSD для HTR[1]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_HTR1</p></td>
+<td><p>OL для HTR[1]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_HTR1</p></td>
+<td><p>SCG для HTR[1]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rlydiag0">
+<h2>RlyDiag0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>RlyDiag0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x3e</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - RLY[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>OC_RLY2</p></td>
+<td><p>OC для RLY[2]</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_RLY2</p></td>
+<td><p>TSD для RLY[2]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OL_RLY2</p></td>
+<td><p>OL для RLY[2]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_RLY2</p></td>
+<td><p>SCG для RLY[2]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_RLY1</p></td>
+<td><p>OC для RLY[1]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_RLY1</p></td>
+<td><p>TSD для RLY[1]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_RLY1</p></td>
+<td><p>OL для RLY[1]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_RLY1</p></td>
+<td><p>SCG для RLY[1]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rlydiag1">
+<h2>RlyDiag1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>RlyDiag1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x3f</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - RLY[4:3]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>OC_RLY4</p></td>
+<td><p>OC для RLY[4]</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_RLY4</p></td>
+<td><p>TSD для RLY[4]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OL_RLY4</p></td>
+<td><p>OL для RLY[4]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_RLY4</p></td>
+<td><p>SCG для RLY[4]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_RLY3</p></td>
+<td><p>OC для RLY[3]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_RLY3</p></td>
+<td><p>TSD для RLY[3]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_RLY3</p></td>
+<td><p>OL для RLY[3]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_RLY3</p></td>
+<td><p>SCG для RLY[3]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rlydiag2">
+<h2>RlyDiag2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>RlyDiag2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x40</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - RLY[6:5]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>OC_RLY6</p></td>
+<td><p>OC для RLY[6]</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_RLY6</p></td>
+<td><p>TSD для RLY[6]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OL_RLY6</p></td>
+<td><p>OL для RLY[6]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_RLY6</p></td>
+<td><p>SCG для RLY[6]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_RLY5</p></td>
+<td><p>OC для RLY[5]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_RLY5</p></td>
+<td><p>TSD для RLY[5]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_RLY5</p></td>
+<td><p>OL для RLY[5]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_RLY5</p></td>
+<td><p>SCG для RLY[5]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rlydiag3">
+<h2>RlyDiag3</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>RlyDiag3</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x41</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - RLY[8:7]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>OC_RLY8</p></td>
+<td><p>OC для RLY[8]</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_RLY8</p></td>
+<td><p>TSD для RLY[8]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OL_RLY8</p></td>
+<td><p>OL для RLY[8]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_RLY8</p></td>
+<td><p>SCG для RLY[8]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_RLY7</p></td>
+<td><p>OC для RLY[7]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_RLY7</p></td>
+<td><p>TSD для RLY[7]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_RLY7</p></td>
+<td><p>OL для RLY[7]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_RLY7</p></td>
+<td><p>SCG для RLY[7]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rlydiag4">
+<h2>RlyDiag4</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>RlyDiag4</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x42</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - RLY[9],
+VLV[1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>OC_VLV1</p></td>
+<td><p>OC для VLV[1]</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_VLV1</p></td>
+<td><p>TSD для VLV[1]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OL_VLV1</p></td>
+<td><p>OL для VLV[1]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_VLV1</p></td>
+<td><p>SCG для VLV[1]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_RLY9</p></td>
+<td><p>OC для RLY[9]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_RLY9</p></td>
+<td><p>TSD для RLY[9]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_RLY9</p></td>
+<td><p>OL для RLY[9]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_RLY9</p></td>
+<td><p>SCG для RLY[9]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="vlvdiag">
+<h2>VlvDiag</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>VlvDiag</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x43</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - VLV[3:2]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>OC_VLV3</p></td>
+<td><p>OC для VLV[3]</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>TSD_VLV3</p></td>
+<td><p>TSD для VLV[3]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OL_VLV3</p></td>
+<td><p>OL для VLV[3]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_VLV3</p></td>
+<td><p>SCG для VLV[3]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_VLV2</p></td>
+<td><p>OC для VLV[2]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_VLV2</p></td>
+<td><p>TSD для VLV[2]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OL_VLV2</p></td>
+<td><p>OL для VLV[2]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SCG_VLV2</p></td>
+<td><p>SCG для VLV[2]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hbdiag0">
+<h2>HbDiag0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>HbDiag0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x44</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - HB[1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>OL_HB1</p></td>
+<td><p>OL для HB[1]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>SCB_HB1</p></td>
+<td><p>SCB для HB[1]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_HB1</p></td>
+<td><p>SCG для HB[1]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_LS1</p></td>
+<td><p>OC для HB_LS[1]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_LS1</p></td>
+<td><p>TSD для HB_LS[1]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OC_HS1</p></td>
+<td><p>OC для HB_HS[1]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>TSD_HS1</p></td>
+<td><p>TSD для HB_HS[1]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hbdiag1">
+<h2>HbDiag1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>HbDiag1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x45</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Диагностический регистр для силовых драйверов - HB[2]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>OL_HB2</p></td>
+<td><p>OL для HB[2]</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>SCB_HB2</p></td>
+<td><p>SCB для HB[2]</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SCG_HB2</p></td>
+<td><p>SCG для HB[2]</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OC_LS2</p></td>
+<td><p>OC для HB_LS[2]</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>TSD_LS2</p></td>
+<td><p>TSD для HB_LS[2]</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OC_HS2</p></td>
+<td><p>OC для HB_HS[2]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>TSD_HS2</p></td>
+<td><p>TSD для HB_HS[2]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rstdiag">
+<h2>RstDiag</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>RstDiag</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x46</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статус причины сброса (reset) цифровой логики</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>POR_EVENT</p></td>
+<td><p>Происходил сброс по PoR (отключение внутреннего 1.8В питания)</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>VDD5_OV_RST_EVENT</p></td>
+<td><p>OverColtage по VDD5</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>VDD5_UV_RST_EVENT</p></td>
+<td><p>UnderVoltage по VDD5</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>SOFTWARE_RST_EVENT</p></td>
+<td><p>Была оправлена SPI/MSC команда на сброс</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>WD_RST_EVENT</p></td>
+<td><p>Многократный сбой по WD</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>RSTB_EVENT</p></td>
+<td><p>Порт RSTb переводили в &quot;0&quot;</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="glbstatus">
+<h2>GLBStatus</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>GLBStatus</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x47</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Общий диагностический регистр цифровых функций</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>GND_FAIL</p></td>
+<td><p>Потеря земли (PGND_LOSS/AGND_LOSS/GNDIO_LOSS)</p></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>SPI_MSC_FAIL</p></td>
+<td><p>Ошибка коммуникации SPI/MSC</p></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>OTP_FAIL</p></td>
+<td><p>Ошибка в блоке VR Сенсора (OL/SCG/SCB/VRS WD)</p></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>VRS_FAIL</p></td>
+<td><p>Одно и более нарушений по питаниям VDD5, VPWR, vdig_1p5v, vana_1p5v</p></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>SUP_FAIL_DIS_DRV</p></td>
+<td><p>Нарушение по WD или MSC SV</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>WD_SV_FAIL</p></td>
+<td><p>Ошибка SCB/SCG/OL на одном или нескольких силовых транзисторах</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>SC_OL_FAIL</p></td>
+<td><p>Ошибка OC/TSD на одном или нескольких силовых транзисторах</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>TSD_OC_FAIL</p></td>
+<td><p>Ошибка в работе OTP (OTP_COMMUN_FAIL/OTP_USAGE_FAULT/FUSE_CHECK_ERROR/SELF_TEST_ERROR)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wdquestion">
+<h2>WdQuestion</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>WdQuestion</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x48</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статус актуального вопроса WD</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>LFSR</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wdpasscnt">
+<h2>WdPassCnt</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>WdPassCnt</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x49</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статус refresh-счётчика WD</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:3]</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>[2:0]</p></td>
+<td><p>WD_RFH_CNT</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wdfailcnt">
+<h2>WdFailCnt</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>WdFailCnt</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x4a</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статус счётчика ошибок и reset-счёстчика WD</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>[5:3]</p></td>
+<td><p>RST_ERR_CNT</p></td>
+<td><p>Статус reset-счётчика</p></td>
+</tr>
+<tr><td><p>[2:0]</p></td>
+<td><p>WD_ERR_CNT</p></td>
+<td><p>Статус счётчика ошибок</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="psstate0">
+<h2>PSState0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>PSState0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x4b</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статусный регистр выходов силовых драйверов - IGN[4:1],
+INJ[4:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>OUT_STATE_INJ</p></td>
+<td><p>Для INJ[4:1]</p></td>
+</tr>
+<tr><td><p>[3:0]</p></td>
+<td><p>OUT_STATE_IGN</p></td>
+<td><p>Для IGN[4:1]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="psstate1">
+<h2>PSState1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>PSState1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x4c</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статусный регистр выходов силовых драйверов - RLY[8:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>OUT_STATE_RLY</p></td>
+<td><p>Для RLY[8:1]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="psstate2">
+<h2>PSState2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>PSState2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x4d</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статусный регистр выходов силовых драйверов - RLY[9],
+HTR[2:1], VLV[3:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>[5:3]</p></td>
+<td><p>OUT_STATE_VLV</p></td>
+<td><p>Для VLV[3:1]</p></td>
+</tr>
+<tr><td><p>[2:1]</p></td>
+<td><p>OUT_STATE_HTR</p></td>
+<td><p>Для HTR[2:1]</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>OUT_STATE_RLY</p></td>
+<td><p>Для RLY[9]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="psstate3">
+<h2>PSState3</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>PSState3</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x4e</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статусный регистр выходов силовых драйверов - HB[2:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>[3:2]</p></td>
+<td><p>OUT_STATE_LS</p></td>
+<td><p>Для HB_LS[2:1]</p></td>
+</tr>
+<tr><td><p>[1:0]</p></td>
+<td><p>OUT_STATE_HS</p></td>
+<td><p>Для HB_HS[2:1]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="instate0">
+<h2>InState0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>InState0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x4f</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статусный регистр входов Непосредственного Управления -
+IN[8:1]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>DIN</p></td>
+<td><p>Для IN[8:1]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="instate1">
+<h2>InState1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>InState1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x50</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статусный регистр входов Непосредственного Управления -
+IN[13:9]</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:5]</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>[4:0]</p></td>
+<td><p>DIN</p></td>
+<td><p>Для IN[13:9]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="enstate0">
+<h2>EnState0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>EnState0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x51</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Статусный регистр цифровых входов и глобальной команды OE</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>DNDIS_DRV</p></td>
+<td><p>Статус входы DIS_DRVb</p></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>DEN_DRV</p></td>
+<td><p>Статус входа EN_DRV</p></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>DEN_RLY</p></td>
+<td><p>Статус входа EN_RLY12</p></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>OE</p></td>
+<td><p>Статус глобальной команды OE</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="maskid">
+<h2>MaskID</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MaskID</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x52</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Mask ID статус</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:5]</p></td>
+<td><p>Reserved</p></td>
+<td></td>
+</tr>
+<tr><td><p>[4:0]</p></td>
+<td><p>MASK_ID</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cmd0">
+<h2>Cmd0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>Cmd0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x53</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Общие команды управления</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>Code</p></td>
+<td><p>0x00</p></td>
+<td><dl>
+<dt>0x0 - комманда блокировки управления всех силовых транзисторов (все OE=&quot;0&quot;)</dt>
+<dd><div class="line-block">
+<div class="line">0x1 - комманда на активацию управления всех силовых транзисторов (все OE=&quot;1&quot;)</div>
+<div class="line">0x2 - комманда на блокировку частотной модуляции осцилятора CP</div>
+<div class="line">0x3 - комманда на активацию частотной модуляции осцилятора CP</div>
+<div class="line">0x4 - комманда на старт диагностики VRS</div>
+<div class="line">0x5 - комманда на прерывание MSC UPSTREAM посылки</div>
+<div class="line">0x6 - комманда на сброс DELAY OFF таймера</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cmdwdcheck">
+<h2>CmdWdCheck</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>CmdWdCheck</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x54</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Посылка-ответ от MCU для WD</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>MCU_REPLY</p></td>
+<td><p>0x00</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cmdwdldsd">
+<h2>CmdWdLdSd</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>CmdWdLdSd</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x55</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка WD &quot;вопроса&quot;</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>SEED</p></td>
+<td><p>0x00</p></td>
+<td><p>Стартовый seed для полинома WD</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cmdsoftrst">
+<h2>CmdSoftRst</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>CmdSoftRst</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x56</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Команда с кодовыми посылками для активации soft-reset</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>SOFTWARE_RST</p></td>
+<td><p>0x00</p></td>
+<td><p>1 - data[7:0]=0xA3, 2 - data[7:0]=0x8F</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd0">
+<h2>MscRCmd0</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd0</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x57</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>DenConfig4</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>DenConfig3</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>DenConfig2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>DenConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>DenConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>DisDrvConfig2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>DisDrvConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>DisDrvConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd1">
+<h2>MscRCmd1</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd1</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x58</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>Cont2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>Cont1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>Cont0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OEConfig3</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>OEConfig2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OEConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>OEConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd2">
+<h2>MscRCmd2</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd2</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x59</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>CurrLimConfig2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>CurrLimConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>CurrLimConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>DlyOffConfig</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>BRIConfig</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>DDConfig2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>DDConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>DDConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd3">
+<h2>MscRCmd3</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd3</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x5a</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>IgnDiagConfig</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>OutDiagConfig4</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>OutDiagConfig3</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>OutDiagConfig2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>OutDiagConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>OutDiagConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd4">
+<h2>MscRCmd4</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd4</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x5b</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>DinConfig7</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>DinConfig6</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>DinConfig5</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>DinConfig4</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>DinConfig3</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>DinConfig2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>DinConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>DinConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd5">
+<h2>MscRCmd5</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd5</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x5c</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>FaultbConfig2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>FaultbConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>FaultbConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>RstbConfig</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>DinConfig11</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>DinConfig10</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>DinConfig9</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>DinConfig8</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd6">
+<h2>MscRCmd6</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd6</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x5d</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>AoutConfig</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>MscConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>MscConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>VrsConfig2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>VrsConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>VrsConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>WDConfig1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>WDConfig0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd7">
+<h2>MscRCmd7</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd7</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x5e</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>ExtDiag1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>ExtDiag0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>SupDiag</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>VrsDiag</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd8">
+<h2>MscRCmd8</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd8</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x5f</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:6]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>HbDiag1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>HbDiag0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>IgnDiag1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>IgnDiag0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>InjDiag1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>InjDiag0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd9">
+<h2>MscRCmd9</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd9</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x60</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>RstDiag</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>VlvDiag</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>HtrDiag0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>RlyDiag4</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>RlyDiag3</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>RlyDiag2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>RlyDiag1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>RlyDiag0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd10">
+<h2>MscRCmd10</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd10</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x61</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:4]</p></td>
+<td><p>Reserved</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>WdFailCnt</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>WdPassCnt</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>WdQuestion</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>GLBStatus</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mscrcmd11">
+<h2>MscRCmd11</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>MscRCmd11</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x62</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Настройка байта MSC Multiread посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>MaskId</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>EnState0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>InState1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>InState0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>PSState3</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>PSState2</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>PSState1</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>PSState0</p></td>
+<td><p>0x0</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cmdspecialmode">
+<h2>CmdSpecialMode</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>CmdSpecialMode</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x7d</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Активация специальных режимов - запись 8-битной кодовой
+посылки</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>7</p></td>
+<td><p>SM_DIS_IGN_SCG_GNDLOSS</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Чтение бита вернёт статус специального режима:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>6</p></td>
+<td><p>SM_DIS_OC</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Чтение бита вернёт статус специального режима:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>5</p></td>
+<td><p>SM_DIS_VCP_UV</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Чтение бита вернёт статус специального режима:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>4</p></td>
+<td><p>SM_DIS_VPWR_UV</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Чтение бита вернёт статус специального режима:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>3</p></td>
+<td><p>SM_DIS_VPWR_OV</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Чтение бита вернёт статус специального режима:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>2</p></td>
+<td><p>SM_DIS_VDD5_OV</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Чтение бита вернёт статус специального режима:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>1</p></td>
+<td><p>SM_DIS_VDD5_UV</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Чтение бита вернёт статус специального режима:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr><td><p>0</p></td>
+<td><p>SM_DIS_TSD</p></td>
+<td><p>0x0</p></td>
+<td><dl>
+<dt>Чтение бита вернёт статус специального режима:</dt>
+<dd><div class="line-block">
+<div class="line">&quot;0&quot; - режим ВЫКЛ.</div>
+<div class="line">&quot;1&quot; - режим ВКЛ.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cmdtm">
+<h2>CmdTM</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>CmdTM</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x7e</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>write-only</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Команда с кодовыми посылками для активации тестового
+режима</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>TM_CODE</p></td>
+<td><p>0x00</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pagevrb">
+<h2>PageVrb</h2>
+<dl class="field-list simple">
+<dt>Name<span class="colon">:</span></dt>
+<dd><p>PageVrb</p>
+</dd>
+<dt>Address<span class="colon">:</span></dt>
+<dd><p>0x7f</p>
+</dd>
+<dt>Reset Value<span class="colon">:</span></dt>
+<dd><p>0x00</p>
+</dd>
+<dt>Access<span class="colon">:</span></dt>
+<dd><p>read-write</p>
+</dd>
+<dt>Description<span class="colon">:</span></dt>
+<dd><p>Команда с кодовой посылкой для переключения страницы карты
+регистров</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field name</p></th>
+<th class="head"><p>Reset</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><p>[7:0]</p></td>
+<td><p>CODE</p></td>
+<td><p>0x00</p></td>
+<td><dl>
+<dt>Запись или Чтение:</dt>
+<dd><div class="line-block">
+<div class="line">Запись (W) - команда переключения страницы</div>
+<div class="line">Чтение (R) - статус (бит 0 - номер активной страницы, бит 1 - статус testmode, бит 2 - статус special_mode, бит 3 - статус trim_mask)</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</main>
+</body>
+</html>
