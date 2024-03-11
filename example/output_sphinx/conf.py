@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'example'
-copyright = '2023, IEEE'
+copyright = '2024, IEEE'
 author = 'ipxact2sv'
 
 # -- General configuration ---------------------------------------------------

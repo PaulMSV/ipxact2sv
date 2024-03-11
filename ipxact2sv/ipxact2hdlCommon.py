@@ -811,7 +811,7 @@ class systemVerilogAddressBlock(addressBlockClass):
 
     def returnAddressListString(self):
         r = "\n"
-        r = "//synopsys translate_off\n"
+        r = "//cadence translate_off\n"
         r += "const int " + self.name + "_regAddresses [" + str(len(self.registerList)) + "] = '{"
         l = []
         for reg in self.registerList:
@@ -837,7 +837,7 @@ class systemVerilogAddressBlock(addressBlockClass):
         r += ",".join(l)
         r += "};\n"
         r += "\n"
-        r += "//synopsys translate_on\n\n"
+        r += "//cadence translate_on\n\n"
         return r
 
     def enumeratedType(self, prepend, fieldName, valueNames, values):

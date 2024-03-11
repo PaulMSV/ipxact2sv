@@ -2,7 +2,7 @@
 example
 =======
 
-Demo example used for the testing of the ipxact2systemverilog tool.
+Demo example used for the testing of the ipxact2sv tool.
 
 :Base Address: 0x0
 
