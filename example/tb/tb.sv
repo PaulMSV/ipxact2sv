@@ -1,8 +1,8 @@
 `timescale 1 ns/1 ps
 
-include "example_sv_pkg.svh";
+include "regmap0_sv_pkg.svh";
 
-import example_sv_pkg::*;
+import regmap0_sv_pkg::*;
 
 interface registerInterface#(width=8,addressWidth=5
 			     )(
@@ -59,11 +59,11 @@ endclass
 
 module tb;
    
-  //const int width        = example_sv_pkg::data_width;
-  //const int	addressWidth = example_sv_pkg::addr_width;
+  //const int width        = regmap0_sv_pkg::data_width;
+  //const int	addressWidth = regmap0_sv_pkg::addr_width;
    
-  parameter width = `example_data_width;
-  parameter addressWidth= `example_addr_width;
+  parameter width = `regmap0_data_width;
+  parameter addressWidth= `regmap0_addr_width;
    
   reg                     writeEnable;
   reg [width-1:0]         writeData;   
@@ -73,7 +73,7 @@ module tb;
   reg                     clk;
   reg                     rstn;
 
-  example_struct_type reset_registers;
+  regmap0_struct_type reset_registers;
 
   env #(.width(width),.addressWidth(addressWidth)) env;
 
@@ -102,25 +102,25 @@ module tb;
     task test(virtual registerInterface#(width,addressWidth) intf);
       intf.reset();
       $display($realtime," test reset values");
-      reset_registers = reset_example();
-      foreach( example_regNames [ j ] )
+      reset_registers = reset_regmap0();
+      foreach( regmap0_regNames [ j ] )
         begin
-          $display("index = %d, name = %s, address = 0x%h", j ,example_regNames[j] , example_regAddresses[j]);
-          intf.read(r,example_regAddresses[j]);
-          if(example_regUnResetedAddresses[j] == 0)
+          $display("index = %d, name = %s, address = 0x%h", j ,regmap0_regNames[j] , regmap0_regAddresses[j]);
+          intf.read(r,regmap0_regAddresses[j]);
+          if(regmap0_regUnResetedAddresses[j] == 0)
             begin
-              CHECK_RESET_VALUE : assert (r==read_example(reset_registers,example_regAddresses[j])) 
+              CHECK_RESET_VALUE : assert (r==read_regmap0(reset_registers,regmap0_regAddresses[j])) 
               begin
                 $display ("read value = %h. OK!",r);
               end else begin
-                $error("Read %h, expected %h. time = %0t",r,read_example(reset_registers,example_regAddresses[j]),$time);
+                $error("Read %h, expected %h. time = %0t",r,read_regmap0(reset_registers,regmap0_regAddresses[j]),$time);
               end
             end
           else
             begin
               $display ("UnResetedAddress, not comparing expected to read value!");
             end
-      end // foreach ( example_regNames [ j ] )
+      end // foreach ( regmap0_regNames [ j ] )
       repeat(10) @(posedge clk);
     endtask
 

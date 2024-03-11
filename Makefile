@@ -56,7 +56,8 @@ gen:
 
 compile:
 	test -d work || vlib work
-	vlog  +incdir+example/output  example/output/example_sv_pkg.sv example/tb/sv_dut.sv example/tb/tb.sv
+	#vlog  +incdir+example/output  example/output/example_sv_pkg.sv example/tb/sv_dut.sv example/tb/tb.sv
+	vlog  +incdir+example/output  example/output/regmap0_sv_pkg.sv example/tb/sv_dut.sv example/tb/tb.sv
 	vmake work > vmakefile
 
 parse_systemverilog:
