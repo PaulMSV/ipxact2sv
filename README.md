@@ -20,7 +20,7 @@ ipxact2c --srcFile FILE --destDir DIR
 
 ## Разработка
 
-See https://github.com/paulmMSV/ipxact2sv
+См. https://github.com/paulmMSV/ipxact2sv
 
 ## Тестирование
 
